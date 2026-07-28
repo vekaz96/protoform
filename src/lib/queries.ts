@@ -2,6 +2,7 @@ import "server-only";
 import { createClient, hasSupabase } from "./supabase/server";
 import { SEED_PROJECTS, SEED_POSTS } from "./data";
 import type { Project, Post } from "./types";
+import { normalizeProject } from "./project-images";
 
 /*
  * Data access with graceful fallback.
@@ -20,7 +21,7 @@ export async function getProjects(): Promise<Project[]> {
       .eq("published", true)
       .order("sort", { ascending: true });
     if (error || !data || data.length === 0) return SEED_PROJECTS;
-    return data as Project[];
+    return (data as Project[]).map(normalizeProject);
   } catch {
     return SEED_PROJECTS;
   }

@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { slugify } from "@/lib/data";
 import type { Post } from "@/lib/types";
+import ImageField from "./ImageField";
 
 const EMPTY: Post = {
   slug: "", title: "", excerpt: "", cover_url: "", body: "", tags: [], published: false,
@@ -22,14 +23,14 @@ export default function PostForm({ initial }: { initial?: Post }) {
   const onTitle = (title: string) =>
     setP((s) => ({ ...s, title, slug: s.slug && editing ? s.slug : slugify(title) }));
 
-  const upload = async (file: File) => {
-    setMsg("Uploading cover…");
+  const uploadCover = async (file: File) => {
     const ext = file.name.split(".").pop() || "jpg";
     const key = `posts/${p.slug || slugify(p.title) || Date.now()}-${Date.now()}.${ext}`;
     const { error } = await supabase.storage.from("media").upload(key, file, { upsert: true });
-    if (error) { setMsg("Upload failed: " + error.message); return; }
-    set("cover_url", supabase.storage.from("media").getPublicUrl(key).data.publicUrl);
-    setMsg("Cover uploaded ✓");
+    if (error) throw new Error(error.message);
+    const url = supabase.storage.from("media").getPublicUrl(key).data.publicUrl;
+    set("cover_url", url);
+    return url;
   };
 
   const save = async (e: React.FormEvent) => {
@@ -59,16 +60,13 @@ export default function PostForm({ initial }: { initial?: Post }) {
       </div>
       <div><label>Excerpt</label><textarea style={{ minHeight: 70 }} value={p.excerpt} onChange={(e) => set("excerpt", e.target.value)} /></div>
 
-      <div>
-        <label>Cover image</label>
-        <div style={{ display: "flex", gap: "1rem", alignItems: "flex-start", flexWrap: "wrap" }}>
-          {p.cover_url && /* eslint-disable-next-line @next/next/no-img-element */ <img className="imgprev" src={p.cover_url} alt="" />}
-          <div style={{ flex: 1, minWidth: 220 }}>
-            <input type="file" accept="image/*" onChange={(e) => e.target.files?.[0] && upload(e.target.files[0])} />
-            <input style={{ marginTop: ".6rem" }} placeholder="…or paste an image URL" value={p.cover_url ?? ""} onChange={(e) => set("cover_url", e.target.value)} />
-          </div>
-        </div>
-      </div>
+      <ImageField
+        label="Cover image"
+        value={p.cover_url ?? ""}
+        onChange={(url) => set("cover_url", url)}
+        onUpload={uploadCover}
+        onStatus={setMsg}
+      />
 
       <div><label>Body (Markdown)</label><textarea value={p.body} onChange={(e) => set("body", e.target.value)} placeholder="## Heading&#10;&#10;Write your post in **markdown**…" /></div>
       <div><label>Tags (comma separated)</label><input value={tagsText} onChange={(e) => setTagsText(e.target.value)} placeholder="Materials, 3D Printing" /></div>

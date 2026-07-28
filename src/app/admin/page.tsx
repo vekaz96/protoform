@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import AdminBar from "@/components/admin/AdminBar";
 import DeleteButton from "@/components/admin/DeleteButton";
 import type { Project, Post } from "@/lib/types";
+import { projectCover } from "@/lib/project-images";
 
 export const dynamic = "force-dynamic";
 
@@ -37,7 +38,7 @@ export default async function AdminDashboard() {
             <tbody>
               {projList.map((p) => (
                 <tr key={p.id}>
-                  <td className="thumb">{p.image_url && /* eslint-disable-next-line @next/next/no-img-element */ <img src={p.image_url} alt="" />}</td>
+                  <td className="thumb">{projectCover(p) && /* eslint-disable-next-line @next/next/no-img-element */ <img src={projectCover(p)} alt="" />}</td>
                   <td>{p.name}</td>
                   <td>{p.category}</td>
                   <td><span className={`pill ${p.published ? "on" : "off"}`}>{p.published ? "live" : "draft"}</span></td>

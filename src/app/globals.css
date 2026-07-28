@@ -248,7 +248,7 @@ img{display:block;max-width:100%}
 @media(max-width:600px){.pgrid{grid-template-columns:1fr}}
 .pcard{position:relative;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg-2);cursor:pointer;transition:transform .5s var(--ease),border-color .5s,box-shadow .5s}
 .pcard:hover{transform:translateY(-6px);border-color:rgba(255,106,26,.45);box-shadow:0 24px 50px -24px rgba(0,0,0,.7)}
-.pcard__img{aspect-ratio:4/3;overflow:hidden;background:#eef}
+.pcard__img{position:relative;aspect-ratio:4/3;overflow:hidden;background:#eef}
 .pcard__img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
 .pcard:hover .pcard__img img{transform:scale(1.07)}
 .pcard__cat{position:absolute;top:12px;left:12px;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(15,16,32,.8);backdrop-filter:blur(6px);color:var(--accent);padding:.3rem .7rem;border-radius:100px;border:1px solid var(--line)}
@@ -267,8 +267,8 @@ img{display:block;max-width:100%}
 .lightbox__inner{max-width:1000px;width:100%;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:grid;grid-template-columns:1.3fr 1fr;transform:scale(.94);transition:transform .5s var(--ease)}
 .lightbox.open .lightbox__inner{transform:none}
 @media(max-width:760px){.lightbox__inner{grid-template-columns:1fr;max-height:88vh;overflow:auto}}
-.lightbox__img{background:#fff}
-.lightbox__img img{width:100%;height:100%;object-fit:cover;min-height:280px}
+.lightbox__img{position:relative;background:#fff}
+.lightbox__img img{width:100%;height:100%;object-fit:cover;min-height:280px;display:block}
 .lightbox__body{padding:2.2rem}
 .lightbox__cat{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 .lightbox__body h3{font-family:'Space Grotesk',sans-serif;font-size:1.9rem;margin:.6rem 0 1rem;letter-spacing:-.01em}
@@ -390,6 +390,27 @@ img{display:block;max-width:100%}
 .aform .check{display:flex;align-items:center;gap:.5rem}
 .aform .check input{width:auto}
 .aform .imgprev{width:160px;height:120px;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:#fff}
+.img-field{display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap}
+.img-field__opts{flex:1;min-width:220px;display:grid;gap:.9rem}
+.img-field__sublabel{display:block;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+.img-field__hint{margin:.35rem 0 0;font-size:.78rem;color:var(--muted);line-height:1.4}
+.img-list{list-style:none;display:grid;gap:.75rem;margin:0;padding:0}
+.img-list__item{display:flex;gap:.85rem;align-items:center;padding:.65rem;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.img-list__meta{display:flex;flex-direction:column;gap:.45rem;align-items:flex-start}
+.img-list__idx{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.img-list__remove{font-size:.78rem;color:var(--muted);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline}
+.img-list__remove:hover{color:var(--accent)}
+.img-list__add{display:flex;gap:.5rem;align-items:center}
+.img-list__add input{flex:1}
+.pcard__count{position:absolute;bottom:10px;right:10px;font-size:.72rem;background:rgba(15,16,32,.82);color:#fff;padding:.25rem .55rem;border-radius:100px;border:1px solid var(--line)}
+.lightbox__nav{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:rgba(15,16,32,.65);color:#fff;font-size:1.4rem;line-height:1;cursor:pointer;transition:.25s}
+.lightbox__nav:hover{background:var(--accent);border-color:var(--accent)}
+.lightbox__nav--prev{left:12px}
+.lightbox__nav--next{right:12px}
+.lightbox__thumbs{display:flex;gap:.45rem;padding:.65rem;background:rgba(15,16,32,.5);overflow-x:auto}
+.lightbox__thumb{flex:0 0 auto;width:56px;height:42px;border-radius:6px;border:2px solid transparent;overflow:hidden;cursor:pointer;opacity:.7;transition:.2s}
+.lightbox__thumb.active,.lightbox__thumb:hover{opacity:1;border-color:var(--accent)}
+.lightbox__thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .aform__actions{display:flex;gap:.8rem;align-items:center;margin-top:.5rem}
 .amsg{font-size:.9rem}
 .amsg.err{color:#ff6a6a}

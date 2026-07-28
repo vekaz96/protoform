@@ -102,17 +102,21 @@ async function main() {
   console.log(`✓ uploaded ${Object.keys(map).length} images to Storage`);
 
   // 3) projects
-  const rows = raw.map((p) => ({
-    slug: slugify(p.name),
-    name: p.name,
-    category: p.category,
-    image_url: map[p.img],
-    blurb: p.blurb,
-    tags: p.tags,
-    featured: !!p.featured,
-    published: true,
-    sort: p.sort ?? 0,
-  }));
+  const rows = raw.map((p) => {
+    const image_url = map[p.img];
+    return {
+      slug: slugify(p.name),
+      name: p.name,
+      category: p.category,
+      image_url,
+      image_urls: [image_url],
+      blurb: p.blurb,
+      tags: p.tags,
+      featured: !!p.featured,
+      published: true,
+      sort: p.sort ?? 0,
+    };
+  });
   const { error: projErr } = await supabase.from("projects").upsert(rows, { onConflict: "slug" });
   if (projErr) throw projErr;
   console.log(`✓ upserted ${rows.length} projects`);

@@ -11,6 +11,7 @@ create table if not exists public.projects (
   name       text not null,
   category   text not null check (category in ('mechanical','product','printing')),
   image_url  text not null default '',
+  image_urls text[] not null default '{}',
   blurb      text not null default '',
   tags       text[] not null default '{}',
   featured   boolean not null default false,

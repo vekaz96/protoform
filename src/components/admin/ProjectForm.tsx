@@ -4,10 +4,12 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { slugify } from "@/lib/data";
 import type { Project } from "@/lib/types";
+import { projectImages } from "@/lib/project-images";
+import ImageListField from "./ImageListField";
 
 const EMPTY: Project = {
   slug: "", name: "", category: "mechanical", image_url: "",
-  blurb: "", tags: [], featured: false, published: true, sort: 0,
+  image_urls: [], blurb: "", tags: [], featured: false, published: true, sort: 0,
 };
 
 export default function ProjectForm({ initial }: { initial?: Project }) {
@@ -15,6 +17,7 @@ export default function ProjectForm({ initial }: { initial?: Project }) {
   const supabase = createClient();
   const editing = !!initial?.id;
   const [p, setP] = useState<Project>(initial ?? EMPTY);
+  const [imageUrls, setImageUrls] = useState<string[]>(() => projectImages(initial ?? EMPTY));
   const [tagsText, setTagsText] = useState((initial?.tags ?? []).join(", "));
   const [msg, setMsg] = useState("");
   const [busy, setBusy] = useState(false);
@@ -25,26 +28,26 @@ export default function ProjectForm({ initial }: { initial?: Project }) {
     setP((s) => ({ ...s, name, slug: s.slug && editing ? s.slug : slugify(name) }));
   };
 
-  const upload = async (file: File) => {
-    setMsg("Uploading image…");
+  const uploadImage = async (file: File) => {
     const ext = file.name.split(".").pop() || "jpg";
     const key = `projects/${p.slug || slugify(p.name) || Date.now()}-${Date.now()}.${ext}`;
     const { error } = await supabase.storage.from("media").upload(key, file, { upsert: true });
-    if (error) { setMsg("Upload failed: " + error.message); return; }
-    const url = supabase.storage.from("media").getPublicUrl(key).data.publicUrl;
-    set("image_url", url);
-    setMsg("Image uploaded ✓");
+    if (error) throw new Error(error.message);
+    return supabase.storage.from("media").getPublicUrl(key).data.publicUrl;
   };
 
   const save = async (e: React.FormEvent) => {
     e.preventDefault();
     setBusy(true);
     setMsg("");
+    const urls = imageUrls.map((u) => u.trim()).filter(Boolean);
     const row = {
       ...p,
       slug: p.slug || slugify(p.name),
       tags: tagsText.split(",").map((t) => t.trim()).filter(Boolean),
       sort: Number(p.sort) || 0,
+      image_urls: urls,
+      image_url: urls[0] ?? "",
     };
     const { error } = editing
       ? await supabase.from("projects").update(row).eq("id", initial!.id!)
@@ -73,16 +76,13 @@ export default function ProjectForm({ initial }: { initial?: Project }) {
         <div><label>Sort order</label><input type="number" value={p.sort ?? 0} onChange={(e) => set("sort", Number(e.target.value))} /></div>
       </div>
 
-      <div>
-        <label>Image</label>
-        <div style={{ display: "flex", gap: "1rem", alignItems: "flex-start", flexWrap: "wrap" }}>
-          {p.image_url && /* eslint-disable-next-line @next/next/no-img-element */ <img className="imgprev" src={p.image_url} alt="" />}
-          <div style={{ flex: 1, minWidth: 220 }}>
-            <input type="file" accept="image/*" onChange={(e) => e.target.files?.[0] && upload(e.target.files[0])} />
-            <input style={{ marginTop: ".6rem" }} placeholder="…or paste an image URL" value={p.image_url} onChange={(e) => set("image_url", e.target.value)} />
-          </div>
-        </div>
-      </div>
+      <ImageListField
+        label="Images"
+        urls={imageUrls}
+        onChange={setImageUrls}
+        onUpload={uploadImage}
+        onStatus={setMsg}
+      />
 
       <div><label>Blurb</label><textarea style={{ minHeight: 90 }} value={p.blurb} onChange={(e) => set("blurb", e.target.value)} /></div>
       <div><label>Tags (comma separated)</label><input value={tagsText} onChange={(e) => setTagsText(e.target.value)} placeholder="CAD, Drawings, Industrial" /></div>

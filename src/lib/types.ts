@@ -6,6 +6,7 @@ export interface Project {
   name: string;
   category: Category;
   image_url: string;
+  image_urls?: string[];
   blurb: string;
   tags: string[];
   featured?: boolean;

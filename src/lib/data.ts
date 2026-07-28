@@ -132,7 +132,8 @@ const raw: Seed[] = [
 
 export const SEED_PROJECTS: Project[] = raw.map((p) => {
   const { img, ...rest } = p;
-  return { ...rest, slug: slugify(p.name), image_url: `/projects/${img}.jpg` };
+  const image_url = `/projects/${img}.jpg`;
+  return { ...rest, slug: slugify(p.name), image_url, image_urls: [image_url] };
 });
 
 export const SEED_POSTS: Post[] = [
