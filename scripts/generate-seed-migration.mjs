@@ -1,6 +1,16 @@
 /*
- * Generates supabase/migrations/*_seed_projects_and_posts.sql from src/lib/data.ts
+ * Generates the seed migrations in supabase/migrations/ from src/lib/data.ts
  * Run: node scripts/generate-seed-migration.mjs
+ *
+ * Output is split into two files so that already-applied migrations keep their
+ * checksum and `supabase db push` stays happy:
+ *
+ *   20260728151000_seed_projects_and_posts.sql  original catalogue + blog posts
+ *   20260728160000_seed_2026_portfolio.sql      projects imported from a
+ *                                               presentation board (`sheet: true`)
+ *
+ * Adding a new batch? Give it its own marker + output file here rather than
+ * folding it into an existing one.
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -48,11 +58,17 @@ function dollarTag(body) {
 
 const { raw, posts } = loadSeed();
 
-const projectRows = raw.map((p) => {
+function projectRow(p) {
   const slug = slugify(p.name);
   const imageUrl = `/projects/${p.img}.jpg`;
-  return `  (${sqlStr(slug)}, ${sqlStr(p.name)}, ${sqlStr(p.category)}, ${sqlStr(imageUrl)}, ARRAY[${sqlStr(imageUrl)}], ${sqlStr(p.blurb)}, ${sqlTags(p.tags)}, ${p.featured ? "true" : "false"}, true, ${p.sort ?? 0})`;
-});
+  // Sheet projects carry the cropped card render plus the full project board.
+  const urls = p.sheet ? [imageUrl, `/projects/sheets/${p.img}.jpg`] : [imageUrl];
+  const urlArray = `ARRAY[${urls.map((u) => sqlStr(u)).join(", ")}]`;
+  return `  (${sqlStr(slug)}, ${sqlStr(p.name)}, ${sqlStr(p.category)}, ${sqlStr(imageUrl)}, ${urlArray}, ${sqlStr(p.blurb)}, ${sqlTags(p.tags)}, ${p.featured ? "true" : "false"}, true, ${p.sort ?? 0})`;
+}
+
+const projectRows = raw.filter((p) => !p.sheet).map(projectRow);
+const sheetRows = raw.filter((p) => p.sheet).map(projectRow);
 
 const postRows = posts.map((p) => {
   const cover = p.cover_url ? sqlStr(p.cover_url) : "NULL";
@@ -76,6 +92,34 @@ ${postRows.join(",\n")}
 ON CONFLICT (slug) DO NOTHING;
 `;
 
+/*
+ * The original seed migration has already been applied to live databases, and
+ * the checked-in copy predates the image_urls column — rewriting it would change
+ * its checksum and break `supabase db push` without adding a single row (every
+ * INSERT is ON CONFLICT DO NOTHING). Pass --rewrite-base only when rebuilding
+ * migration history from scratch.
+ */
 const out = join(root, "supabase/migrations/20260728151000_seed_projects_and_posts.sql");
-writeFileSync(out, sql);
-console.log(`✓ wrote ${out} (${raw.length} projects, ${posts.length} posts)`);
+if (process.argv.includes("--rewrite-base")) {
+  writeFileSync(out, sql);
+  console.log(`✓ wrote ${out} (${projectRows.length} projects, ${posts.length} posts)`);
+} else {
+  console.log(`· skipped ${out} (already applied — pass --rewrite-base to force)`);
+}
+
+const sheetSql = `-- PROTOFORM 2026 portfolio — projects imported from Presentation_20260727.pdf
+-- Safe to re-run: skips rows that already exist (by slug).
+-- Each row carries two images: the cropped card render and the full project
+-- sheet (renders, views, dimensioned drawings, specs) as the second gallery
+-- image. Edit either one in /admin, or paste any https URL.
+-- Regenerate: node scripts/generate-seed-migration.mjs
+
+INSERT INTO public.projects (slug, name, category, image_url, image_urls, blurb, tags, featured, published, sort)
+VALUES
+${sheetRows.join(",\n")}
+ON CONFLICT (slug) DO NOTHING;
+`;
+
+const sheetOut = join(root, "supabase/migrations/20260728160000_seed_2026_portfolio.sql");
+writeFileSync(sheetOut, sheetSql);
+console.log(`✓ wrote ${sheetOut} (${sheetRows.length} projects)`);
