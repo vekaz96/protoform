@@ -25,7 +25,8 @@ export default async function ProjectsPage() {
           <p className="subhero__lead">
             Every project below is our own past work — sorted by discipline, from
             production machinery and mechanical assemblies to consumer product design
-            and reverse-engineered 3D-printed parts. Click any card for the detail.
+            and reverse-engineered 3D-printed parts. Open any card for the full
+            project page.
           </p>
         </div>
       </section>
