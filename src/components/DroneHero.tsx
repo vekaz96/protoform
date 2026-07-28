@@ -108,14 +108,15 @@ export default function DroneHero() {
     }
     applyUI(0);
 
-    // intro reveal of the hero copy
+    // intro reveal of the hero copy — fromTo (explicit ends) so it stays
+    // correct even when React Strict Mode double-invokes the effect in dev.
     const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
-    tl.to(".hero__title .line>span", { y: "0%", duration: 1.1, stagger: 0.12 })
-      .from(".hero__kicker>span", { y: "110%", duration: 0.8 }, "-=.9")
-      .from(".hero__sub>span", { y: "110%", duration: 0.8 }, "-=.7")
-      .from(".hero__cta>span", { y: "110%", duration: 0.8 }, "-=.7")
-      .from(".dstages", { opacity: 0, x: 30, duration: 0.9 }, "-=.8")
-      .from(".dhero__pct", { opacity: 0, y: 20, duration: 0.7 }, "-=.7");
+    tl.fromTo(".hero__title .line>span", { y: "110%" }, { y: "0%", duration: 1.1, stagger: 0.12 })
+      .fromTo(".hero__kicker>span", { y: "110%" }, { y: "0%", duration: 0.8 }, "-=.9")
+      .fromTo(".hero__sub>span", { y: "110%" }, { y: "0%", duration: 0.8 }, "-=.7")
+      .fromTo(".hero__cta>span", { y: "110%" }, { y: "0%", duration: 0.8 }, "-=.7")
+      .fromTo(".dstages", { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.9 }, "-=.8")
+      .fromTo(".dhero__pct", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 }, "-=.7");
 
     return () => {
       window.removeEventListener("touchstart", prime);
