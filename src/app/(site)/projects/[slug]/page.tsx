@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProject, getProjects } from "@/lib/queries";
+import { getProject, getProjects, getRelatedProjects } from "@/lib/queries";
 import { catLabel } from "@/lib/types";
 import { projectImages } from "@/lib/project-images";
 import ProjectGallery from "@/components/ProjectGallery";
+import RelatedProjects from "@/components/RelatedProjects";
 
 export const revalidate = 60;
 
@@ -20,7 +21,10 @@ export default async function ProjectPage({ params }: { params: { slug: string }
   const project = await getProject(params.slug);
   if (!project) notFound();
 
-  const images = projectImages(project);
+  const [images, related] = await Promise.all([
+    Promise.resolve(projectImages(project)),
+    getRelatedProjects(params.slug, 3),
+  ]);
 
   return (
     <main>
@@ -46,6 +50,8 @@ export default async function ProjectPage({ params }: { params: { slug: string }
       <section className="project">
         <ProjectGallery images={images} name={project.name} />
       </section>
+
+      <RelatedProjects projects={related} />
 
       <section className="cta">
         <div className="cta__orb"></div>

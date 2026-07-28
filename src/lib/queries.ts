@@ -38,6 +38,18 @@ export async function getProject(slug: string): Promise<Project | null> {
   return all.find((p) => p.slug === slug) ?? null;
 }
 
+/** Same-category projects first, then fill from the rest of the catalogue. */
+export async function getRelatedProjects(slug: string, limit = 3): Promise<Project[]> {
+  const all = await getProjects();
+  const current = all.find((p) => p.slug === slug);
+  if (!current) return [];
+
+  const others = all.filter((p) => p.slug !== slug);
+  const same = others.filter((p) => p.category === current.category);
+  const rest = others.filter((p) => p.category !== current.category);
+  return [...same, ...rest].slice(0, limit);
+}
+
 export async function getPosts(): Promise<Post[]> {
   if (!hasSupabase()) return SEED_POSTS;
   try {
