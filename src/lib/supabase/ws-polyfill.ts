@@ -7,7 +7,7 @@
 type G = typeof globalThis & { WebSocket?: unknown };
 
 if (typeof window === "undefined" && typeof (globalThis as G).WebSocket === "undefined") {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  // eslint-disable-next-line @typescript-eslint/no-require-imports -- sync polyfill before client init
   (globalThis as G).WebSocket = require("ws");
 }
 
