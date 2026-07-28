@@ -136,8 +136,7 @@ export default function DroneHero() {
           muted
           playsInline
           preload="auto"
-          // @ts-expect-error non-standard but valid attribute
-          disablepictureinpicture=""
+          disablePictureInPicture
           aria-hidden="true"
         />
 

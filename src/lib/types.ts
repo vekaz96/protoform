@@ -9,6 +9,7 @@ export interface Project {
   blurb: string;
   tags: string[];
   featured?: boolean;
+  published?: boolean;
   sort?: number;
 }
 

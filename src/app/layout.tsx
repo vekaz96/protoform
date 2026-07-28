@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import Cursor from "@/components/Cursor";
-import SiteEffects from "@/components/SiteEffects";
-import PageTransition from "@/components/PageTransition";
 
 export const metadata: Metadata = {
   title: "PROTOFORM — 3D Modeling & Prototype Development",
@@ -27,14 +22,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>
-        <Cursor />
-        <PageTransition />
-        <Nav />
-        {children}
-        <Footer />
-        <SiteEffects />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

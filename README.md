@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PROTOFORM — Next.js + Supabase
 
-## Getting Started
+3D-modeling / prototyping studio site. The public pages render from a built-in
+seed **until Supabase is connected**, then automatically switch to the database.
+Projects and blog posts are managed from a built-in `/admin` panel.
 
-First, run the development server:
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev            # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The scroll-scrubbed drone hero needs HTTP Range support — Next's dev server and
+all real hosts provide it, so it just works (no custom server needed).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Connect Supabase (one time)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Create the tables.** In the Supabase dashboard → **SQL Editor**, paste and
+   run [`supabase/schema.sql`](supabase/schema.sql). It creates the `projects`
+   and `posts` tables, RLS policies, and the public `media` storage bucket.
 
-## Learn More
+2. **Add credentials.** Copy `.env.example` → `.env.local` and fill in from
+   **Project Settings → API**:
 
-To learn more about Next.js, take a look at the following resources:
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...            # anon / publishable
+   SUPABASE_SERVICE_ROLE_KEY=eyJ...                # service_role (secret)
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Seed data + admin user + images.**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   node scripts/setup.mjs you@email.com "a-strong-password"
+   ```
 
-## Deploy on Vercel
+   This creates the admin login, uploads the 37 project images to Storage, and
+   inserts all 37 projects + the starter blog posts. Save the password it prints.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Lock down sign-ups.** In **Authentication → Sign In / Providers → Email**,
+   turn **off** "Allow new users to sign up" (only your admin account should
+   exist — any signed-in user can edit content).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. Restart `pnpm dev`. The site now reads from Supabase and `/admin` works.
+
+## Managing content
+
+- Go to **`/admin`**, sign in with the account from step 3.
+- **Projects** and **Blog posts**: create, edit, delete. Upload images directly
+  (they go to Supabase Storage) or paste an image URL. Toggle **Published** to
+  show/hide on the site. Blog bodies are written in **Markdown**.
+
+## Structure
+
+```
+src/app/(site)/      public pages (home, projects, blog, services, about, contact)
+src/app/admin/       auth-guarded CRUD panel
+src/components/       Nav, Footer, DroneHero, ProjectsGrid, admin forms…
+src/lib/             types, seed data, Supabase clients, queries (with fallback)
+supabase/schema.sql  database + storage setup
+scripts/setup.mjs    one-time seeder
+public/              drone video + project images
+```
