@@ -13,6 +13,8 @@
  *   - insert the seed blog posts
  * Re-running upserts by slug, so it's safe.
  */
+import ws from "ws"; // Node < 22 has no global WebSocket, which supabase-js needs
+globalThis.WebSocket ||= ws;
 import { createClient } from "@supabase/supabase-js";
 import { readFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -68,7 +70,17 @@ async function main() {
   console.log(userErr ? `• admin user already exists (${email})` : `✓ admin user created: ${email}`);
   if (!userErr) console.log(`  password: ${password}   ← save this`);
 
-  // 2) images → Storage
+  // 2) ensure the public "media" bucket exists (schema.sql also creates it)
+  {
+    const { error } = await supabase.storage.createBucket("media", { public: true });
+    if (error && !/already exists|resource already/i.test(error.message)) {
+      console.warn("  ! createBucket:", error.message);
+    } else {
+      console.log("✓ storage bucket 'media' ready");
+    }
+  }
+
+  // 3) images → Storage
   const raw = loadSeed();
   const map = {};
   for (const p of raw) {
