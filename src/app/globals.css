@@ -407,6 +407,8 @@ img{display:block;max-width:100%}
 .aform input:focus,.aform textarea:focus,.aform select:focus{outline:none;border-color:var(--accent)}
 .aform .check{display:flex;align-items:center;gap:.5rem}
 .aform .check input{width:auto}
+.aform__labelrow{display:flex;align-items:center;justify-content:space-between;gap:.8rem;margin-bottom:.4rem}
+.aform__labelrow label{margin-bottom:0}
 .aform .imgprev{width:160px;height:120px;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:#fff}
 .img-field{display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap}
 .img-field__opts{flex:1;min-width:220px;display:grid;gap:.9rem}

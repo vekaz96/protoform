@@ -18,6 +18,7 @@ export default function PostForm({ initial }: { initial?: Post }) {
   const [tagsText, setTagsText] = useState((initial?.tags ?? []).join(", "));
   const [msg, setMsg] = useState("");
   const [busy, setBusy] = useState(false);
+  const [aiBusy, setAiBusy] = useState(false);
 
   const set = <K extends keyof Post>(k: K, v: Post[K]) => setP((s) => ({ ...s, [k]: v }));
   const onTitle = (title: string) =>
@@ -52,13 +53,52 @@ export default function PostForm({ initial }: { initial?: Post }) {
     router.refresh();
   };
 
+  const improveExcerpt = async () => {
+    if (!p.title.trim()) {
+      setMsg("Add a post title first.");
+      return;
+    }
+    setAiBusy(true);
+    setMsg("Improving excerpt with AI…");
+    try {
+      const resp = await fetch("/api/ai/description", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "post",
+          title: p.title,
+          tags: tagsText.split(",").map((t) => t.trim()).filter(Boolean),
+          current: p.excerpt,
+        }),
+      });
+      const data = await resp.json();
+      if (!resp.ok) {
+        throw new Error(data?.error || "Failed to improve excerpt.");
+      }
+      set("excerpt", data.text);
+      setMsg("Excerpt improved ✓");
+    } catch (e) {
+      setMsg("AI failed: " + (e instanceof Error ? e.message : String(e)));
+    } finally {
+      setAiBusy(false);
+    }
+  };
+
   return (
     <form className="aform" onSubmit={save}>
       <div className="row">
         <div><label>Title</label><input value={p.title} onChange={(e) => onTitle(e.target.value)} required /></div>
         <div><label>Slug</label><input value={p.slug} onChange={(e) => set("slug", e.target.value)} /></div>
       </div>
-      <div><label>Excerpt</label><textarea style={{ minHeight: 70 }} value={p.excerpt} onChange={(e) => set("excerpt", e.target.value)} /></div>
+      <div>
+        <div className="aform__labelrow">
+          <label>Excerpt</label>
+          <button className="btn btn--ghost btn--sm" type="button" onClick={improveExcerpt} disabled={aiBusy}>
+            {aiBusy ? "Improving…" : "Improve with AI"}
+          </button>
+        </div>
+        <textarea style={{ minHeight: 70 }} value={p.excerpt} onChange={(e) => set("excerpt", e.target.value)} />
+      </div>
 
       <ImageField
         label="Cover image"

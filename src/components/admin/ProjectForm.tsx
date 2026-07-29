@@ -21,6 +21,7 @@ export default function ProjectForm({ initial }: { initial?: Project }) {
   const [tagsText, setTagsText] = useState((initial?.tags ?? []).join(", "));
   const [msg, setMsg] = useState("");
   const [busy, setBusy] = useState(false);
+  const [aiBusy, setAiBusy] = useState(false);
 
   const set = <K extends keyof Project>(k: K, v: Project[K]) => setP((s) => ({ ...s, [k]: v }));
 
@@ -58,6 +59,38 @@ export default function ProjectForm({ initial }: { initial?: Project }) {
     router.refresh();
   };
 
+  const improveBlurb = async () => {
+    if (!p.name.trim()) {
+      setMsg("Add a project name first.");
+      return;
+    }
+    setAiBusy(true);
+    setMsg("Improving blurb with AI…");
+    try {
+      const resp = await fetch("/api/ai/description", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "project",
+          name: p.name,
+          category: p.category,
+          tags: tagsText.split(",").map((t) => t.trim()).filter(Boolean),
+          current: p.blurb,
+        }),
+      });
+      const data = await resp.json();
+      if (!resp.ok) {
+        throw new Error(data?.error || "Failed to improve blurb.");
+      }
+      set("blurb", data.text);
+      setMsg("Blurb improved ✓");
+    } catch (e) {
+      setMsg("AI failed: " + (e instanceof Error ? e.message : String(e)));
+    } finally {
+      setAiBusy(false);
+    }
+  };
+
   return (
     <form className="aform" onSubmit={save}>
       <div className="row">
@@ -84,7 +117,15 @@ export default function ProjectForm({ initial }: { initial?: Project }) {
         onStatus={setMsg}
       />
 
-      <div><label>Blurb</label><textarea style={{ minHeight: 90 }} value={p.blurb} onChange={(e) => set("blurb", e.target.value)} /></div>
+      <div>
+        <div className="aform__labelrow">
+          <label>Blurb</label>
+          <button className="btn btn--ghost btn--sm" type="button" onClick={improveBlurb} disabled={aiBusy}>
+            {aiBusy ? "Improving…" : "Improve with AI"}
+          </button>
+        </div>
+        <textarea style={{ minHeight: 90 }} value={p.blurb} onChange={(e) => set("blurb", e.target.value)} />
+      </div>
       <div><label>Tags (comma separated)</label><input value={tagsText} onChange={(e) => setTagsText(e.target.value)} placeholder="CAD, Drawings, Industrial" /></div>
 
       <div className="row">
