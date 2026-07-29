@@ -54,7 +54,7 @@ export default function ServicesPage() {
 
         <div className="split reveal">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <div className="split__media"><img src="/projects/petg.jpg" alt="PET-G replacement parts" /></div>
+          <div className="split__media"><img src="/projects/portfolio/petg-0.jpg" alt="PET-G replacement parts" /></div>
           <div className="split__body">
             <h3>Prototypes &amp; parts you can hold</h3>
             <p>When a part can&apos;t be bought anymore, we reverse-engineer it and print it — from PET-G replacement parts and factory sprockets to a reverse-engineered impeller printed with five walls at 100% infill.</p>

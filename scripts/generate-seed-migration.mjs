@@ -74,9 +74,22 @@ function projectRow(p) {
   return `  (${sqlStr(slug)}, ${sqlStr(p.name)}, ${sqlStr(p.category)}, ${sqlStr(urls[0])}, ${urlArray}, ${sqlStr(p.blurb)}, ${sqlTags(p.tags)}, ${p.featured ? "true" : "false"}, true, ${p.sort ?? 0})`;
 }
 
-const projectRows = raw.filter((p) => !p.sheet && !p.gallery).map(projectRow);
-const sheetRows = raw.filter((p) => p.sheet).map(projectRow);
-const galleryRows = raw.filter((p) => p.gallery).map(projectRow);
+/* Which insert migration a project belongs to. `existing` rows were seeded by
+ * the original base migration, so they stay with it however their images change. */
+const isSheet = (p) => !!p.sheet;
+const isPortfolio = (p) => !!p.gallery && !p.existing;
+const isBase = (p) => !isSheet(p) && !isPortfolio(p);
+
+const projectRows = raw.filter(isBase).map(projectRow);
+const sheetRows = raw.filter(isSheet).map(projectRow);
+const galleryRows = raw.filter(isPortfolio).map(projectRow);
+
+/* Image fixes for rows that already exist — UPDATE, not INSERT. */
+const fixRows = raw.filter((p) => p.existing).map((p) => {
+  const urls = seedImages(p);
+  const urlArray = `ARRAY[${urls.map((u) => sqlStr(u)).join(", ")}]`;
+  return `  (${sqlStr(slugify(p.name))}, ${sqlStr(urls[0])}, ${urlArray})`;
+});
 
 const postRows = posts.map((p) => {
   const cover = p.cover_url ? sqlStr(p.cover_url) : "NULL";
@@ -148,3 +161,29 @@ ON CONFLICT (slug) DO NOTHING;
 const galleryOut = join(root, "supabase/migrations/20260729090000_seed_client_portfolio.sql");
 writeFileSync(galleryOut, gallerySql);
 console.log(`✓ wrote ${galleryOut} (${galleryRows.length} projects)`);
+
+const fixSql = `-- PROTOFORM catalogue images re-extracted from
+-- "3D modeling & prototype development services.pdf"
+--
+-- The original catalogue images were cropped from a low-resolution render of
+-- that deck (600x560, 800x780). Every page of the source is a flattened
+-- 6000x3375 slide, so these are re-cropped from the full-resolution masters:
+-- a ~1600px cover plus each of the project's slides at 2000px.
+--
+-- Rows already exist, so this is an UPDATE keyed on slug — an INSERT would hit
+-- ON CONFLICT DO NOTHING and change nothing. Only the images are touched; name,
+-- category, blurb, tags, featured, published and sort are left alone, so any
+-- edits made in /admin survive.
+-- Safe to re-run. Regenerate: node scripts/generate-seed-migration.mjs
+
+UPDATE public.projects AS p
+SET image_url = v.image_url, image_urls = v.image_urls
+FROM (VALUES
+${fixRows.join(",\n")}
+) AS v(slug, image_url, image_urls)
+WHERE p.slug = v.slug;
+`;
+
+const fixOut = join(root, "supabase/migrations/20260729110000_fix_catalogue_images.sql");
+writeFileSync(fixOut, fixSql);
+console.log(`✓ wrote ${fixOut} (${fixRows.length} projects updated)`);

@@ -79,7 +79,7 @@ export default function Home() {
             <div className="wf-visual__card">
               <div className="wf-visual__media" id="wfMedia">
                 {/* eslint-disable @next/next/no-img-element */}
-                <img src="/projects/pump.jpg" alt="CAD geometry" className="active" />
+                <img src="/projects/portfolio/pump-0.jpg" alt="CAD geometry" className="active" />
                 <img src="/projects/coolingstation.jpg" alt="Design optimized for manufacturing" />
                 <img src="/projects/bom.jpg" alt="Exploded view with bill of materials" />
                 <img src="/projects/foam.jpg" alt="Cross-section fit study" />
