@@ -58,17 +58,25 @@ function dollarTag(body) {
 
 const { raw, posts } = loadSeed();
 
-function projectRow(p) {
-  const slug = slugify(p.name);
-  const imageUrl = `/projects/${p.img}.jpg`;
-  // Sheet projects carry the cropped card render plus the full project board.
-  const urls = p.sheet ? [imageUrl, `/projects/sheets/${p.img}.jpg`] : [imageUrl];
-  const urlArray = `ARRAY[${urls.map((u) => sqlStr(u)).join(", ")}]`;
-  return `  (${sqlStr(slug)}, ${sqlStr(p.name)}, ${sqlStr(p.category)}, ${sqlStr(imageUrl)}, ${urlArray}, ${sqlStr(p.blurb)}, ${sqlTags(p.tags)}, ${p.featured ? "true" : "false"}, true, ${p.sort ?? 0})`;
+/* Keep in step with seedImages() in src/lib/data.ts. */
+function seedImages(p) {
+  if (p.gallery) {
+    return Array.from({ length: p.gallery }, (_, i) => `/projects/portfolio/${p.img}-${i}.jpg`);
+  }
+  const base = `/projects/${p.img}.jpg`;
+  return p.sheet ? [base, `/projects/sheets/${p.img}.jpg`] : [base];
 }
 
-const projectRows = raw.filter((p) => !p.sheet).map(projectRow);
+function projectRow(p) {
+  const slug = slugify(p.name);
+  const urls = seedImages(p);
+  const urlArray = `ARRAY[${urls.map((u) => sqlStr(u)).join(", ")}]`;
+  return `  (${sqlStr(slug)}, ${sqlStr(p.name)}, ${sqlStr(p.category)}, ${sqlStr(urls[0])}, ${urlArray}, ${sqlStr(p.blurb)}, ${sqlTags(p.tags)}, ${p.featured ? "true" : "false"}, true, ${p.sort ?? 0})`;
+}
+
+const projectRows = raw.filter((p) => !p.sheet && !p.gallery).map(projectRow);
 const sheetRows = raw.filter((p) => p.sheet).map(projectRow);
+const galleryRows = raw.filter((p) => p.gallery).map(projectRow);
 
 const postRows = posts.map((p) => {
   const cover = p.cover_url ? sqlStr(p.cover_url) : "NULL";
@@ -123,3 +131,20 @@ ON CONFLICT (slug) DO NOTHING;
 const sheetOut = join(root, "supabase/migrations/20260728160000_seed_2026_portfolio.sql");
 writeFileSync(sheetOut, sheetSql);
 console.log(`✓ wrote ${sheetOut} (${sheetRows.length} projects)`);
+
+const gallerySql = `-- PROTOFORM client portfolio — imported from Project Portfolio_23.07.2026.pdf
+-- Safe to re-run: skips rows that already exist (by slug).
+-- Each row carries its full image gallery from /projects/portfolio/, ordered so
+-- the first entry is the cover shown on the projects grid. Reorder, add or
+-- remove images per project in /admin.
+-- Regenerate: node scripts/generate-seed-migration.mjs
+
+INSERT INTO public.projects (slug, name, category, image_url, image_urls, blurb, tags, featured, published, sort)
+VALUES
+${galleryRows.join(",\n")}
+ON CONFLICT (slug) DO NOTHING;
+`;
+
+const galleryOut = join(root, "supabase/migrations/20260729090000_seed_client_portfolio.sql");
+writeFileSync(galleryOut, gallerySql);
+console.log(`✓ wrote ${galleryOut} (${galleryRows.length} projects)`);

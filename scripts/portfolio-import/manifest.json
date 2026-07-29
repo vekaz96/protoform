@@ -1,0 +1,2109 @@
+[
+ {
+  "title": "Aluminum Mold \u2013 Lures",
+  "slug": "aluminum-mold-lures",
+  "pages": [
+   2,
+   5
+  ],
+  "desc": "Based on the reference \"Hedgehog\" model provided by the customer, a 3D CAD model of a mold for casting with an elastic material was developed. Due to the product's complex geometry and the need for easy demolding, the mold was designed as a four-part assembly. The outer sections were designed with increased thickness, while the inner sections were made narrower to facilitate mold separation and ensure safe removal of the casting without damage. The final design was established through several design revisions and consultations with the customer, resulting in an optimized solution in terms of functionality, manufacturability, and ease of use.",
+  "images": [
+   {
+    "file": "aluminum-mold-lures-0.jpg",
+    "page": 2,
+    "size": [
+     1536,
+     1024
+    ]
+   },
+   {
+    "file": "aluminum-mold-lures-1.jpg",
+    "page": 3,
+    "size": [
+     1197,
+     679
+    ]
+   },
+   {
+    "file": "aluminum-mold-lures-2.jpg",
+    "page": 4,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "aluminum-mold-lures-3.jpg",
+    "page": 4,
+    "size": [
+     1197,
+     680
+    ]
+   },
+   {
+    "file": "aluminum-mold-lures-4.jpg",
+    "page": 5,
+    "size": [
+     503,
+     760
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Sock",
+  "slug": "sock",
+  "pages": [
+   6,
+   9
+  ],
+  "desc": "Based on the instructions and sketches provided by the customer, a 3D CAD model of a protective shoe cover was developed, intended for use in indoor areas where entering with regular footwear is not permitted. The product was designed as a universal cover suitable for both the left and right foot, with a single size adapted to different types and dimensions of footwear. The design was optimized to provide sufficient space for easy application over shoes, while incorporating an elastic band in the ankle area to ensure secure fitting. The lower part of the model was designed with transversely arranged rubber strips to provide improved grip on the surface, increase user safety during movement, and reduce the possibility of slipping.",
+  "images": [
+   {
+    "file": "sock-0.jpg",
+    "page": 6,
+    "size": [
+     1536,
+     1024
+    ]
+   },
+   {
+    "file": "sock-1.jpg",
+    "page": 7,
+    "size": [
+     1212,
+     871
+    ]
+   },
+   {
+    "file": "sock-2.jpg",
+    "page": 8,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "sock-3.jpg",
+    "page": 8,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "sock-4.jpg",
+    "page": 9,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "sock-5.jpg",
+    "page": 9,
+    "size": [
+     1196,
+     681
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Groom Stick",
+  "slug": "groom-stick",
+  "pages": [
+   10,
+   13
+  ],
+  "desc": "Based on the sketches, reference images, and technical requirements provided by the customer, a 3D CAD model of the \u201cGroomStick\u201d product was developed \u2013 a compact beard comb with an integrated lip balm holder. The model was designed according to the defined overall dimensions, with adjustments made to ensure comfortable use, portability, and suitability for 3D printing, with potential for further adaptation for manufacturing processes. Special attention was given to the design of the comb teeth, their arrangement, curved profile, and the integration of the lip balm storage area. Throughout the development process, the model was revised multiple times based on customer feedback to achieve the desired appearance and functionality as closely as possible to the reference design.",
+  "images": [
+   {
+    "file": "groom-stick-0.jpg",
+    "page": 10,
+    "size": [
+     1536,
+     1024
+    ]
+   },
+   {
+    "file": "groom-stick-1.jpg",
+    "page": 11,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "groom-stick-2.jpg",
+    "page": 12,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "groom-stick-3.jpg",
+    "page": 12,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "groom-stick-4.jpg",
+    "page": 13,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "groom-stick-5.jpg",
+    "page": 13,
+    "size": [
+     1196,
+     681
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Divot Tool",
+  "slug": "divot-tool",
+  "pages": [
+   14,
+   17
+  ],
+  "desc": "Based on the reference images, logo, and technical requirements provided by the customer, a 3D CAD model of a premium golf divot repair tool was developed. The model was designed in a minimalist vintage style, with a focus on proper proportions, ergonomics, and suitability for metal manufacturing. During the development process, multiple geometry adjustments were made, including changes to the overall thickness, prong design, and connection areas to improve structural strength and reduce the possibility of bending during use. The final version was optimized according to customer feedback and prepared for prototyping in STEP and STL file formats.",
+  "images": [
+   {
+    "file": "divot-tool-0.jpg",
+    "page": 14,
+    "size": [
+     1200,
+     1184
+    ]
+   },
+   {
+    "file": "divot-tool-1.jpg",
+    "page": 15,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "divot-tool-2.jpg",
+    "page": 16,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "divot-tool-3.jpg",
+    "page": 16,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "divot-tool-4.jpg",
+    "page": 17,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "divot-tool-5.jpg",
+    "page": 17,
+    "size": [
+     1196,
+     681
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Arm Support",
+  "slug": "arm-support",
+  "pages": [
+   18,
+   23
+  ],
+  "desc": "Based on customer-provided sketches and design requirements, CAD models and 2D manufacturing drawings were developed for a six-piece arm support frame used for cosplay wings. The provided sketches were converted into accurate CAD geometry, with 3D models created to visually verify the design, shape, and assembly concept before production. After design confirmation, 2D DWG drawings were prepared for laser cutting of the sheet metal components, including required dimensions and details for manufacturing. The design process included several revisions based on customer feedback to ensure the final parts matched the intended concept and were suitable for fabrication.",
+  "images": [
+   {
+    "file": "arm-support-0.jpg",
+    "page": 18,
+    "size": [
+     1536,
+     1024
+    ]
+   },
+   {
+    "file": "arm-support-1.jpg",
+    "page": 19,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "arm-support-2.jpg",
+    "page": 20,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "arm-support-3.jpg",
+    "page": 20,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "arm-support-4.jpg",
+    "page": 21,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "arm-support-5.jpg",
+    "page": 21,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "arm-support-6.jpg",
+    "page": 22,
+    "size": [
+     1083,
+     790
+    ]
+   },
+   {
+    "file": "arm-support-7.jpg",
+    "page": 22,
+    "size": [
+     1155,
+     589
+    ]
+   },
+   {
+    "file": "arm-support-8.jpg",
+    "page": 23,
+    "size": [
+     1515,
+     756
+    ]
+   },
+   {
+    "file": "arm-support-9.jpg",
+    "page": 23,
+    "size": [
+     550,
+     679
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Fishing Hole Cover",
+  "slug": "fishing-hole-cover",
+  "pages": [
+   24,
+   28
+  ],
+  "desc": "Based on the customer\u2019s requirements and functional concept, a 3D CAD model of a fishing hole cover assembly was developed. The initial concept was transformed into a detailed 3D model, including the main body, cover mechanism, connection elements, and integrated features required for the final design. During the modeling process, special attention was given to the development of the lid assembly, ensuring that the cover could be easily opened while remaining connected to the main housing. The geometry was adjusted to provide proper alignment between components, sufficient clearance for movement, and reliable operation during use. Additional design features were incorporated according to customer requirements, including external openings for LED light installation and the line passage area within the closed cover position. The final CAD model was refined through design adjustments and prepared with detailed dimensions and geometry suitable for prototype development and further manufacturing processes.",
+  "images": [
+   {
+    "file": "fishing-hole-cover-0.jpg",
+    "page": 24,
+    "size": [
+     1536,
+     1024
+    ]
+   },
+   {
+    "file": "fishing-hole-cover-1.jpg",
+    "page": 25,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "fishing-hole-cover-2.jpg",
+    "page": 26,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "fishing-hole-cover-3.jpg",
+    "page": 26,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "fishing-hole-cover-4.jpg",
+    "page": 27,
+    "size": [
+     1052,
+     1692
+    ]
+   },
+   {
+    "file": "fishing-hole-cover-5.jpg",
+    "page": 28,
+    "size": [
+     1573,
+     1123
+    ]
+   },
+   {
+    "file": "fishing-hole-cover-6.jpg",
+    "page": 28,
+    "size": [
+     1134,
+     843
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Gears And Teeth",
+  "slug": "gears-and-teeth",
+  "pages": [
+   29,
+   32
+  ],
+  "desc": "Based on the customer\u2019s existing CAD model, an analysis was performed to identify the cause of interference between the gear teeth during rotation. The original design experienced tooth collisions and jamming, preventing smooth operation of the mechanism. Several design approaches were evaluated to determine the most suitable solution while preserving the overall dimensions of the assembly. As requested by the customer, alternative gear configurations with 36 and 37 teeth were developed while maintaining the original gear diameter. The tooth geometry was modified and optimized to improve meshing characteristics and eliminate interference during rotation. Multiple design variations, including different tooth profiles, were prepared and provided for evaluation, allowing the customer to compare the proposed solutions while retaining the remaining functional features of the original design. The final CAD models were prepared for further testing and validation. .",
+  "images": [
+   {
+    "file": "gears-and-teeth-0.jpg",
+    "page": 29,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "gears-and-teeth-1.jpg",
+    "page": 30,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "gears-and-teeth-2.jpg",
+    "page": 31,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "gears-and-teeth-3.jpg",
+    "page": 31,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "gears-and-teeth-4.jpg",
+    "page": 32,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "gears-and-teeth-5.jpg",
+    "page": 32,
+    "size": [
+     1196,
+     681
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Ball Mark Tool",
+  "slug": "ball-mark-tool",
+  "pages": [
+   33,
+   36
+  ],
+  "desc": "Based on the customer's requirements and functional concept, a 3D CAD model of a golf ball mark repair tool was developed. The project included modeling the main housing, internal dispensing mechanism, refill cap, handle, and all additional components required for the complete assembly. During the modeling process, special attention was given to the internal mechanism, ensuring proper movement of the spring-loaded rod, alignment of the internal components, and sufficient clearance for the sand or seed dispensing system. The design was refined through multiple iterations according to customer feedback and functional requirements. The final CAD assembly was completed with all mechanical components and prepared for prototype development and further manufacturing processes.",
+  "images": [
+   {
+    "file": "ball-mark-tool-0.jpg",
+    "page": 33,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "ball-mark-tool-1.jpg",
+    "page": 34,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "ball-mark-tool-2.jpg",
+    "page": 35,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "ball-mark-tool-3.jpg",
+    "page": 35,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "ball-mark-tool-4.jpg",
+    "page": 36,
+    "size": [
+     1276,
+     886
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Spin Digger",
+  "slug": "spin-digger",
+  "pages": [
+   37,
+   41
+  ],
+  "desc": "Based on the customer's requirements and provided sketches, 3D CAD models of two spin digger concepts were developed. The project included designing two different connection methods between the rubber top and the plastic body: a threaded version and a snap-fit (click-lock) version. During the modeling process, special attention was given to the design of the connection features, ensuring proper fit, secure assembly, and reliable operation of both concepts. The geometry of each version was refined to evaluate the proposed solutions and meet the customer's functional requirements. The final CAD models were completed with all required components and prepared for prototype development, design evaluation, and further manufacturing processes.",
+  "images": [
+   {
+    "file": "spin-digger-0.jpg",
+    "page": 37,
+    "size": [
+     1197,
+     598
+    ]
+   },
+   {
+    "file": "spin-digger-1.jpg",
+    "page": 38,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "spin-digger-2.jpg",
+    "page": 39,
+    "size": [
+     856,
+     485
+    ]
+   },
+   {
+    "file": "spin-digger-3.jpg",
+    "page": 39,
+    "size": [
+     859,
+     487
+    ]
+   },
+   {
+    "file": "spin-digger-4.jpg",
+    "page": 39,
+    "size": [
+     871,
+     494
+    ]
+   },
+   {
+    "file": "spin-digger-5.jpg",
+    "page": 40,
+    "size": [
+     856,
+     487
+    ]
+   },
+   {
+    "file": "spin-digger-6.jpg",
+    "page": 40,
+    "size": [
+     862,
+     489
+    ]
+   },
+   {
+    "file": "spin-digger-7.jpg",
+    "page": 40,
+    "size": [
+     875,
+     499
+    ]
+   },
+   {
+    "file": "spin-digger-8.jpg",
+    "page": 41,
+    "size": [
+     948,
+     536
+    ]
+   },
+   {
+    "file": "spin-digger-9.jpg",
+    "page": 41,
+    "size": [
+     955,
+     541
+    ]
+   },
+   {
+    "file": "spin-digger-10.jpg",
+    "page": 41,
+    "size": [
+     968,
+     547
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Cooler And Skate Cup",
+  "slug": "cooler-and-skate-cup",
+  "pages": [
+   42,
+   46
+  ],
+  "desc": "A complete set of 3D CAD models was developed for the Cooler Cup and Skate Cup based on customer-provided reference images and specified product capacities. Since no technical drawings or dimensions were available, the project required reconstructing the overall geometry, proportions, and design details directly from the reference material. During the development process, the models were continuously refined through multiple design iterations, incorporating customer feedback and requested modifications, including the integration of branding elements into the CAD models. The primary focus was on achieving accurate geometry and visual consistency while maintaining the required capacities. The completed CAD models were delivered for concept evaluation and further product development, providing a solid foundation for future refinements and manufacturing preparation.",
+  "images": [
+   {
+    "file": "cooler-and-skate-cup-0.jpg",
+    "page": 42,
+    "size": [
+     967,
+     1070
+    ]
+   },
+   {
+    "file": "cooler-and-skate-cup-1.jpg",
+    "page": 43,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "cooler-and-skate-cup-2.jpg",
+    "page": 44,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "cooler-and-skate-cup-3.jpg",
+    "page": 44,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "cooler-and-skate-cup-4.jpg",
+    "page": 45,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "cooler-and-skate-cup-5.jpg",
+    "page": 45,
+    "size": [
+     1199,
+     685
+    ]
+   },
+   {
+    "file": "cooler-and-skate-cup-6.jpg",
+    "page": 46,
+    "size": [
+     1199,
+     685
+    ]
+   },
+   {
+    "file": "cooler-and-skate-cup-7.jpg",
+    "page": 46,
+    "size": [
+     1199,
+     685
+    ]
+   }
+  ]
+ },
+ {
+  "title": "An under-desk storage assembly for portable electronic devices",
+  "slug": "an-under-desk-storage-assembly-for-portable-electronic-devices",
+  "pages": [
+   47,
+   51
+  ],
+  "desc": "Based on the customer's concept, sketches, and functional requirements, a 3D CAD model of an under-desk storage pouch was developed. The project began with two design concepts, which were evaluated and refined before selecting the preferred version for further development. During the modeling process, the geometry was continuously optimized through multiple design iterations. The work included modifying the overall dimensions, adjusting the internal cavity, refining the finger access slots, updating fillets and external features, and implementing all requested changes according to the customer's feedback while preserving the overall design intent. The final CAD model was completed with the requested modifications and prepared for design evaluation, further product development, and manufacturing preparation.",
+  "images": [
+   {
+    "file": "an-under-desk-storage-assembly-for-portable-electronic-devices-0.jpg",
+    "page": 47,
+    "size": [
+     1199,
+     615
+    ]
+   },
+   {
+    "file": "an-under-desk-storage-assembly-for-portable-electronic-devices-1.jpg",
+    "page": 48,
+    "size": [
+     1297,
+     772
+    ]
+   },
+   {
+    "file": "an-under-desk-storage-assembly-for-portable-electronic-devices-2.jpg",
+    "page": 48,
+    "size": [
+     1198,
+     555
+    ]
+   },
+   {
+    "file": "an-under-desk-storage-assembly-for-portable-electronic-devices-3.jpg",
+    "page": 49,
+    "size": [
+     1197,
+     555
+    ]
+   },
+   {
+    "file": "an-under-desk-storage-assembly-for-portable-electronic-devices-4.jpg",
+    "page": 49,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "an-under-desk-storage-assembly-for-portable-electronic-devices-5.jpg",
+    "page": 50,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "an-under-desk-storage-assembly-for-portable-electronic-devices-6.jpg",
+    "page": 50,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "an-under-desk-storage-assembly-for-portable-electronic-devices-7.jpg",
+    "page": 51,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "an-under-desk-storage-assembly-for-portable-electronic-devices-8.jpg",
+    "page": 51,
+    "size": [
+     1196,
+     681
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Yoga Block",
+  "slug": "yoga-block",
+  "pages": [
+   52,
+   54
+  ],
+  "desc": "We created a 3D CAD model based on the customer's sketches, reference photos, and requested dimensions. Since the design was developed from reference material rather than manufacturing documentation, the model required interpretation of the overall shape, proportions, and cutout geometry. The model was updated according to the customer's feedback, including adjustments to the cutout depth and the side notches, until the requested design was achieved. The final result is a complete 3D CAD model that reflects the provided requirements and revisions.",
+  "images": [
+   {
+    "file": "yoga-block-0.jpg",
+    "page": 52,
+    "size": [
+     1597,
+     985
+    ]
+   },
+   {
+    "file": "yoga-block-1.jpg",
+    "page": 53,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "yoga-block-2.jpg",
+    "page": 53,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "yoga-block-3.jpg",
+    "page": 54,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "yoga-block-4.jpg",
+    "page": 54,
+    "size": [
+     1203,
+     840
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Steam & Exhaust Distribution Manifold",
+  "slug": "steam-and-exhaust-distribution-manifold",
+  "pages": [
+   55,
+   58
+  ],
+  "desc": "Developed a detailed 3D CAD model of a steam and exhaust distribution manifold based on the provided technical drawings and reference photos. The work included creating the complete external geometry, internal passages, drilled holes, and threaded hole features according to the supplied specifications. The model was refined through multiple revisions by comparing the CAD geometry with photos of the manufactured part, ensuring the final design closely matched both the engineering drawings and the physical component.",
+  "images": [
+   {
+    "file": "steam-and-exhaust-distribution-manifold-0.jpg",
+    "page": 55,
+    "size": [
+     1448,
+     1086
+    ]
+   },
+   {
+    "file": "steam-and-exhaust-distribution-manifold-1.jpg",
+    "page": 56,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "steam-and-exhaust-distribution-manifold-2.jpg",
+    "page": 56,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "steam-and-exhaust-distribution-manifold-3.jpg",
+    "page": 57,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "steam-and-exhaust-distribution-manifold-4.jpg",
+    "page": 57,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "steam-and-exhaust-distribution-manifold-5.jpg",
+    "page": 58,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "steam-and-exhaust-distribution-manifold-6.jpg",
+    "page": 58,
+    "size": [
+     1117,
+     847
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Intake Valve Cleaner",
+  "slug": "intake-valve-cleaner",
+  "pages": [
+   59,
+   62
+  ],
+  "desc": "Developed a custom 3D CAD model of a walnut blasting adapter based on customer-provided photos, sketches, measurements, and functional requirements. The design process focused on accurately recreating the intake port interface while optimizing the overall geometry, wall thickness, nozzle position, and airflow path for the intended application. The model was refined through multiple design iterations using customer feedback, including updates to the intake lip geometry, adapter fit, blast nozzle location, and other dimensional adjustments to achieve the desired functionality and compatibility with the target engine.",
+  "images": [
+   {
+    "file": "intake-valve-cleaner-0.jpg",
+    "page": 59,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "intake-valve-cleaner-1.jpg",
+    "page": 60,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "intake-valve-cleaner-2.jpg",
+    "page": 60,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "intake-valve-cleaner-3.jpg",
+    "page": 61,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "intake-valve-cleaner-4.jpg",
+    "page": 61,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "intake-valve-cleaner-5.jpg",
+    "page": 62,
+    "size": [
+     1136,
+     645
+    ]
+   },
+   {
+    "file": "intake-valve-cleaner-6.jpg",
+    "page": 62,
+    "size": [
+     511,
+     756
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Snap-fit Tube",
+  "slug": "snap-fit-tube",
+  "pages": [
+   63,
+   64
+  ],
+  "desc": "Development of a custom 3D pipe model based on the client's specific sketches and guidelines. The project required precise modeling of the specified length and wall thickness, along with the integration of a functional snap-fit mechanism at the top. Special focus was placed on dimensional accuracy to ensure the final part fits and seats perfectly onto the designated component.",
+  "images": [
+   {
+    "file": "snap-fit-tube-0.jpg",
+    "page": 63,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "snap-fit-tube-1.jpg",
+    "page": 64,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "snap-fit-tube-2.jpg",
+    "page": 64,
+    "size": [
+     1196,
+     681
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Microphone",
+  "slug": "microphone",
+  "pages": [
+   65,
+   68
+  ],
+  "desc": "Developed a 3D CAD housing concept based on customer-provided sketches, specifications, dimensions, and internal component layouts. The model was created by interpreting the supplied documentation and designing the external housing around the defined internal components. The CAD model included the overall housing geometry, handle, head connection, internal cavities, and assembly concept, with revisions made according to customer feedback and updated project requirements.",
+  "images": [
+   {
+    "file": "microphone-0.jpg",
+    "page": 65,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "microphone-1.jpg",
+    "page": 66,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "microphone-2.jpg",
+    "page": 66,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "microphone-3.jpg",
+    "page": 67,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "microphone-4.jpg",
+    "page": 67,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "microphone-5.jpg",
+    "page": 68,
+    "size": [
+     1211,
+     875
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Pants Clip",
+  "slug": "pants-clip",
+  "pages": [
+   69,
+   72
+  ],
+  "desc": "Designed and developed a 3D CAD model of a plastic pocket clip based on the customer's sketches, reference images, and requirements. The project included multiple design revisions, optimization of the clip geometry, addition of magnet pockets, and adjustments to improve manufacturability and functionality. The final design was prepared as a prototype-ready model with detailed technical drawings.",
+  "images": [
+   {
+    "file": "pants-clip-0.jpg",
+    "page": 69,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "pants-clip-1.jpg",
+    "page": 70,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "pants-clip-2.jpg",
+    "page": 70,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "pants-clip-3.jpg",
+    "page": 71,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "pants-clip-4.jpg",
+    "page": 71,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "pants-clip-5.jpg",
+    "page": 72,
+    "size": [
+     552,
+     853
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Mold Pinewood Derby Cars",
+  "slug": "mold-pinewood-derby-cars",
+  "pages": [
+   73,
+   76
+  ],
+  "desc": "Based on the customer's production process, target dimensions, and weight requirements, a 3D CAD model of a multi-cavity gravity casting mold for lead ballast blocks was developed. The primary objective was to achieve consistent castings within the target weight range of 30\u201331 g while maintaining the required external dimensions and reducing post-casting processing. The work included designing the mold cavities, runner and gate system, pouring inlet, venting channels, draft angles, and alignment features. Throughout the project, multiple design iterations were carried out to evaluate different gating concepts and refine the mold layout based on customer feedback and production requirements. The final CAD model was prepared for machining, testing, and further manufacturing optimization.",
+  "images": [
+   {
+    "file": "mold-pinewood-derby-cars-0.jpg",
+    "page": 73,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "mold-pinewood-derby-cars-1.jpg",
+    "page": 74,
+    "size": [
+     1095,
+     622
+    ]
+   },
+   {
+    "file": "mold-pinewood-derby-cars-2.jpg",
+    "page": 74,
+    "size": [
+     1108,
+     628
+    ]
+   },
+   {
+    "file": "mold-pinewood-derby-cars-3.jpg",
+    "page": 75,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "mold-pinewood-derby-cars-4.jpg",
+    "page": 75,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "mold-pinewood-derby-cars-5.jpg",
+    "page": 76,
+    "size": [
+     1218,
+     869
+    ]
+   },
+   {
+    "file": "mold-pinewood-derby-cars-6.jpg",
+    "page": 76,
+    "size": [
+     1217,
+     870
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Rat Tail Mold",
+  "slug": "rat-tail-mold",
+  "pages": [
+   77,
+   79
+  ],
+  "desc": "Based on the customer's concept sketches and functional requirements, a 3D CAD model of a multi- cavity injection mold for a soft plastic rat tail bait was developed. The project included designing the tail geometry and a six-cavity mold compatible with a standard soft plastic injector featuring a 16 mm (5/8\") injection port. Throughout the development, the mold layout, runner and gate system, assembly features, and cavity configuration were refined according to the customer's production process. The tail geometry was further optimized by adding subtle ribs, rounding the tip, and implementing additional design revisions based on customer feedback. The final CAD model was prepared for mold machining and soft plastic production.",
+  "images": [
+   {
+    "file": "rat-tail-mold-0.jpg",
+    "page": 77,
+    "size": [
+     1402,
+     1122
+    ]
+   },
+   {
+    "file": "rat-tail-mold-1.jpg",
+    "page": 78,
+    "size": [
+     1085,
+     618
+    ]
+   },
+   {
+    "file": "rat-tail-mold-2.jpg",
+    "page": 78,
+    "size": [
+     1084,
+     617
+    ]
+   },
+   {
+    "file": "rat-tail-mold-3.jpg",
+    "page": 79,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "rat-tail-mold-4.jpg",
+    "page": 79,
+    "size": [
+     1196,
+     681
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Bottle Cap",
+  "slug": "bottle-cap",
+  "pages": [
+   80,
+   85
+  ],
+  "desc": "Based on the customer's updated requirements and reference measurements, revisions were made to the existing 3D CAD model of a bottle closure assembly. The work focused on increasing the inner diameter of the sleeve to improve the fit around the mating ceramic component while preserving the overall geometry and functionality of the assembly. Multiple design variants were developed to evaluate different edge profiles. Following additional customer feedback, the sleeve geometry was further refined according to the revised dimensions, and the approved changes were applied to the corresponding mating component. The updated CAD models were prepared for continued product validation and manufacturing.",
+  "images": [
+   {
+    "file": "bottle-cap-0.jpg",
+    "page": 80,
+    "size": [
+     1199,
+     688
+    ]
+   },
+   {
+    "file": "bottle-cap-1.jpg",
+    "page": 81,
+    "size": [
+     1151,
+     663
+    ]
+   },
+   {
+    "file": "bottle-cap-2.jpg",
+    "page": 81,
+    "size": [
+     1149,
+     660
+    ]
+   },
+   {
+    "file": "bottle-cap-3.jpg",
+    "page": 82,
+    "size": [
+     1199,
+     688
+    ]
+   },
+   {
+    "file": "bottle-cap-4.jpg",
+    "page": 82,
+    "size": [
+     1199,
+     688
+    ]
+   },
+   {
+    "file": "bottle-cap-5.jpg",
+    "page": 83,
+    "size": [
+     937,
+     538
+    ]
+   },
+   {
+    "file": "bottle-cap-6.jpg",
+    "page": 83,
+    "size": [
+     953,
+     547
+    ]
+   },
+   {
+    "file": "bottle-cap-7.jpg",
+    "page": 83,
+    "size": [
+     953,
+     547
+    ]
+   },
+   {
+    "file": "bottle-cap-8.jpg",
+    "page": 84,
+    "size": [
+     932,
+     529
+    ]
+   },
+   {
+    "file": "bottle-cap-9.jpg",
+    "page": 84,
+    "size": [
+     929,
+     529
+    ]
+   },
+   {
+    "file": "bottle-cap-10.jpg",
+    "page": 84,
+    "size": [
+     926,
+     525
+    ]
+   },
+   {
+    "file": "bottle-cap-11.jpg",
+    "page": 85,
+    "size": [
+     974,
+     554
+    ]
+   },
+   {
+    "file": "bottle-cap-12.jpg",
+    "page": 85,
+    "size": [
+     974,
+     554
+    ]
+   },
+   {
+    "file": "bottle-cap-13.jpg",
+    "page": 85,
+    "size": [
+     970,
+     552
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Spout Design",
+  "slug": "spout-design",
+  "pages": [
+   86,
+   91
+  ],
+  "desc": "Based on the customer's concept sketches, reference drawings, and functional requirements, a 3D CAD model of a spring-loaded fuel spout assembly was developed. The design was created with consideration for manufacturing, sealing, assembly, and smooth component movement. Throughout the project, the design was iteratively refined and optimized based on customer feedback and engineering evaluation to improve functionality, manufacturability, and assembly. The final CAD assembly and 2D manufacturing drawings were prepared for prototype manufacturing and functional testing.",
+  "images": [
+   {
+    "file": "spout-design-0.jpg",
+    "page": 86,
+    "size": [
+     1086,
+     1448
+    ]
+   },
+   {
+    "file": "spout-design-1.jpg",
+    "page": 87,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "spout-design-2.jpg",
+    "page": 87,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "spout-design-3.jpg",
+    "page": 88,
+    "size": [
+     939,
+     532
+    ]
+   },
+   {
+    "file": "spout-design-4.jpg",
+    "page": 88,
+    "size": [
+     939,
+     534
+    ]
+   },
+   {
+    "file": "spout-design-5.jpg",
+    "page": 88,
+    "size": [
+     932,
+     527
+    ]
+   },
+   {
+    "file": "spout-design-6.jpg",
+    "page": 89,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "spout-design-7.jpg",
+    "page": 89,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "spout-design-8.jpg",
+    "page": 90,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "spout-design-9.jpg",
+    "page": 90,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "spout-design-10.jpg",
+    "page": 91,
+    "size": [
+     1323,
+     949
+    ]
+   },
+   {
+    "file": "spout-design-11.jpg",
+    "page": 91,
+    "size": [
+     1322,
+     949
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Retractable Handle Strap Mechanism",
+  "slug": "retractable-handle-strap-mechanism",
+  "pages": [
+   92,
+   93
+  ],
+  "desc": "Based on the customer\u2019s concept, sketches, and functional requirements, an initial 3D CAD concept of a tablet case with an integrated retractable handle system was developed. The project focused on defining the overall concept, establishing the rough external design, and exploring different layouts and positions of the main components. Through multiple design iterations, the concept was refined according to customer feedback, helping to evaluate different design approaches and prepare the project for the next stage of development.",
+  "images": [
+   {
+    "file": "retractable-handle-strap-mechanism-0.jpg",
+    "page": 92,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "retractable-handle-strap-mechanism-1.jpg",
+    "page": 93,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "retractable-handle-strap-mechanism-2.jpg",
+    "page": 93,
+    "size": [
+     1196,
+     681
+    ]
+   }
+  ]
+ },
+ {
+  "title": "XRF Scanner stand",
+  "slug": "xrf-scanner-stand",
+  "pages": [
+   94,
+   98
+  ],
+  "desc": "Based on the customer's concept, reference examples, and available measurements, a custom 3D CAD model of a stand and protective cover for an XRF scanner was developed. The project focused on creating a stable, accurately fitting design that securely supports the scanner while accommodating its irregular geometry. Through multiple design iterations, the models were refined according to customer feedback and 3D-printed test results, establishing a practical design ready for further prototyping and manufacturing refinement.",
+  "images": [
+   {
+    "file": "xrf-scanner-stand-0.jpg",
+    "page": 94,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "xrf-scanner-stand-1.jpg",
+    "page": 95,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "xrf-scanner-stand-2.jpg",
+    "page": 95,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "xrf-scanner-stand-3.jpg",
+    "page": 96,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "xrf-scanner-stand-4.jpg",
+    "page": 96,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "xrf-scanner-stand-5.jpg",
+    "page": 97,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "xrf-scanner-stand-6.jpg",
+    "page": 97,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "xrf-scanner-stand-7.jpg",
+    "page": 98,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "xrf-scanner-stand-8.jpg",
+    "page": 98,
+    "size": [
+     1196,
+     681
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Speaker Holder",
+  "slug": "speaker-holder",
+  "pages": [
+   99,
+   101
+  ],
+  "desc": "Based on the customer's reference photos, dimensional sketches, and provided measurements, a custom 3D CAD model of a speaker mounting bracket was developed. The project focused on accurately recreating the existing part geometry and adapting the design for 3D printing and manufacturing requirements. Through design refinement and dimensional adjustments, the model was optimized to ensure proper fit, functionality, and reliable replacement of the original damaged component. The final CAD model was prepared for production and functional testing.",
+  "images": [
+   {
+    "file": "speaker-holder-0.jpg",
+    "page": 99,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "speaker-holder-1.jpg",
+    "page": 100,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "speaker-holder-2.jpg",
+    "page": 100,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "speaker-holder-3.jpg",
+    "page": 101,
+    "size": [
+     1056,
+     602
+    ]
+   },
+   {
+    "file": "speaker-holder-4.jpg",
+    "page": 101,
+    "size": [
+     661,
+     945
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Tuff-Stix_XS",
+  "slug": "tuff-stix-xs",
+  "pages": [
+   102,
+   104
+  ],
+  "desc": "Based on the customer's reference drawings, PDF documentation, dimensional requirements, and profile specifications, a custom 3D CAD model of an aluminum extrusion profile was developed. The project focused on accurately creating the extrusion geometry, including wall thicknesses, exterior ribs, interior support ribs, and required radius details, while considering extrusion manufacturing requirements. Through design iterations and customer feedback, the model was refined to match the required profile specifications and optimized for tooling preparation. The final CAD model, STEP and STL files, and profile drawing were prepared for extrusion manufacturing and further production development.",
+  "images": [
+   {
+    "file": "tuff-stix-xs-0.jpg",
+    "page": 102,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "tuff-stix-xs-1.jpg",
+    "page": 103,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "tuff-stix-xs-2.jpg",
+    "page": 104,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "tuff-stix-xs-3.jpg",
+    "page": 104,
+    "size": [
+     1196,
+     681
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Sun And It's Rays Door Number No.333",
+  "slug": "sun-and-it-s-rays-door-number-no-333",
+  "pages": [
+   105,
+   107
+  ],
+  "desc": "Based on the customer's reference image, design requirements, and dimensional guidelines, a custom 3D CAD model of a decorative door number design was developed. The project focused on converting a 2D visual concept into a detailed 3D model, including the creation of the sun and ray geometry, number placement, and overall design proportions. Through multiple design iterations and customer feedback, the model was refined by adjusting ray count, shapes, thickness, slopes, and text dimensions to achieve the desired visual appearance. The final CAD design provided a detailed representation of the concept for review, further development, and production planning.",
+  "images": [
+   {
+    "file": "sun-and-it-s-rays-door-number-no-333-0.jpg",
+    "page": 105,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "sun-and-it-s-rays-door-number-no-333-1.jpg",
+    "page": 106,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "sun-and-it-s-rays-door-number-no-333-2.jpg",
+    "page": 106,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "sun-and-it-s-rays-door-number-no-333-3.jpg",
+    "page": 107,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "sun-and-it-s-rays-door-number-no-333-4.jpg",
+    "page": 107,
+    "size": [
+     1196,
+     681
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Tornado Trellis",
+  "slug": "tornado-trellis",
+  "pages": [
+   108,
+   110
+  ],
+  "desc": "Based on the customer's concept sketches, engineering documentation, and design requirements, a complex 3D CAD model of a modular spiral trellis system was developed. The project focused on creating the pedestal structure, internal support system, and spiral rail geometry while considering spatial limitations, smooth transitions, and functional requirements. Through multiple design iterations and customer feedback, the model was refined to translate the conceptual design into a detailed 3D representation and evaluate the feasibility of the proposed system.",
+  "images": [
+   {
+    "file": "tornado-trellis-0.jpg",
+    "page": 108,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "tornado-trellis-1.jpg",
+    "page": 109,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "tornado-trellis-2.jpg",
+    "page": 109,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "tornado-trellis-3.jpg",
+    "page": 110,
+    "size": [
+     964,
+     547
+    ]
+   },
+   {
+    "file": "tornado-trellis-4.jpg",
+    "page": 110,
+    "size": [
+     970,
+     549
+    ]
+   },
+   {
+    "file": "tornado-trellis-5.jpg",
+    "page": 110,
+    "size": [
+     970,
+     552
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Tray Mold",
+  "slug": "tray-mold",
+  "pages": [
+   111,
+   114
+  ],
+  "desc": "Based on the customer's drawings, dimensions, and logo requirements, a 3D CAD model of a tray and test mold was developed. The project included modeling the cavity geometry, lid fit, mold layout, and embossed logo details. Through several design iterations, the model was adjusted according to customer feedback, including changes to cavity dimensions, logo size, line thickness, and emboss depth, to prepare the design for prototype testing.",
+  "images": [
+   {
+    "file": "tray-mold-0.jpg",
+    "page": 111,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "tray-mold-1.jpg",
+    "page": 112,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "tray-mold-2.jpg",
+    "page": 112,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "tray-mold-3.jpg",
+    "page": 113,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "tray-mold-4.jpg",
+    "page": 113,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "tray-mold-5.jpg",
+    "page": 114,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "tray-mold-6.jpg",
+    "page": 114,
+    "size": [
+     1196,
+     681
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Air Intake Box for a Truck",
+  "slug": "air-intake-box-for-a-truck",
+  "pages": [
+   115,
+   117
+  ],
+  "desc": "Based on customer-provided sketches, dimensions, and reference models, a custom 3D CAD model was developed. The process included converting the initial concept into precise CAD geometry, resolving unclear design details through communication, and refining the model through multiple dimensional and geometric adjustments. The final design was optimized according to the customer's requirements and prepared as a detailed CAD model.",
+  "images": [
+   {
+    "file": "air-intake-box-for-a-truck-0.jpg",
+    "page": 115,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "air-intake-box-for-a-truck-1.jpg",
+    "page": 116,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "air-intake-box-for-a-truck-2.jpg",
+    "page": 116,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "air-intake-box-for-a-truck-3.jpg",
+    "page": 117,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "air-intake-box-for-a-truck-4.jpg",
+    "page": 117,
+    "size": [
+     1196,
+     681
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Vibra Screw",
+  "slug": "vibra-screw",
+  "pages": [
+   118,
+   123
+  ],
+  "desc": "The project involved creating 3D models based on existing DWG drawings provided by the client. The workflow included reviewing and interpreting the 2D drawings, extracting the required overall dimensions and external geometry, and creating simplified 3D models suitable for plant layout visualization. Since the models were intended for customer presentations and plant planning, the focus was on accurate external shape, footprint, interfaces, and overall dimensions rather than detailed manufacturing features, internal components, or fabrication-level details. Client feedback was used throughout the process to confirm modeling requirements and make adjustments where necessary. The completed models were prepared as simplified 3D representations and later converted into additional formats for easier viewing and presentation purposes.",
+  "images": [
+   {
+    "file": "vibra-screw-0.jpg",
+    "page": 118,
+    "size": [
+     1086,
+     1085
+    ]
+   },
+   {
+    "file": "vibra-screw-1.jpg",
+    "page": 119,
+    "size": [
+     1055,
+     595
+    ]
+   },
+   {
+    "file": "vibra-screw-2.jpg",
+    "page": 119,
+    "size": [
+     1054,
+     598
+    ]
+   },
+   {
+    "file": "vibra-screw-3.jpg",
+    "page": 120,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "vibra-screw-4.jpg",
+    "page": 120,
+    "size": [
+     1197,
+     683
+    ]
+   },
+   {
+    "file": "vibra-screw-5.jpg",
+    "page": 121,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "vibra-screw-6.jpg",
+    "page": 121,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "vibra-screw-7.jpg",
+    "page": 122,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "vibra-screw-8.jpg",
+    "page": 122,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "vibra-screw-9.jpg",
+    "page": 123,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "vibra-screw-10.jpg",
+    "page": 123,
+    "size": [
+     1196,
+     681
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Worm Lure Mold",
+  "slug": "worm-lure-mold",
+  "pages": [
+   124,
+   126
+  ],
+  "desc": "The mold was designed for casting a worm lure based on the customer\u2019s requirements and reference images. The worm model was created according to the requested shape, dimensions, smooth section, ribbed body, and tail geometry. The mold was then designed around the approved worm model. The mold also includes an additional core rod feature, allowing the lure to be molded with a hollow center. After the first plastic layer cures, the rod can be removed and another color can be injected into the center of the worm.",
+  "images": [
+   {
+    "file": "worm-lure-mold-0.jpg",
+    "page": 124,
+    "size": [
+     1448,
+     1086
+    ]
+   },
+   {
+    "file": "worm-lure-mold-1.jpg",
+    "page": 125,
+    "size": [
+     1117,
+     634
+    ]
+   },
+   {
+    "file": "worm-lure-mold-2.jpg",
+    "page": 125,
+    "size": [
+     1110,
+     630
+    ]
+   },
+   {
+    "file": "worm-lure-mold-3.jpg",
+    "page": 126,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "worm-lure-mold-4.jpg",
+    "page": 126,
+    "size": [
+     1198,
+     683
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Hyperbolic Paraboloid Designs",
+  "slug": "hyperbolic-paraboloid-designs",
+  "pages": [
+   127,
+   129
+  ],
+  "desc": "This project involved the creation of CAD drawings and 3D models of complex hyperbolic paraboloid structures based on provided reference drawings, sketches, and architectural examples. The workflow included converting conceptual 2D designs into accurate CAD geometry, interpreting structural shapes from limited reference information, and developing detailed 3D models suitable for visualization and further design development. The models were created with focus on maintaining the intended geometry, proportions, wall thickness, and overall structural appearance while adapting the designs for a clear 3D representation. Additional reference materials and dimensional information were used to refine the models and achieve the closest possible match to the original concepts.",
+  "images": [
+   {
+    "file": "hyperbolic-paraboloid-designs-0.jpg",
+    "page": 127,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "hyperbolic-paraboloid-designs-1.jpg",
+    "page": 128,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "hyperbolic-paraboloid-designs-2.jpg",
+    "page": 129,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "hyperbolic-paraboloid-designs-3.jpg",
+    "page": 129,
+    "size": [
+     1196,
+     681
+    ]
+   }
+  ]
+ },
+ {
+  "title": "TuneSafe_Guitar",
+  "slug": "tunesafe-guitar",
+  "pages": [
+   130,
+   132
+  ],
+  "desc": "Design and development of a protective guitar headstock cover designed to prevent accidental movement of tuning pegs while remaining easy to attach and remove. The project included 3D CAD modeling and product development focused on a lightweight, durable, and universal design. The internal support system was developed to stabilize the guitar headstock and neck using soft contact points while keeping the tuning machines protected and free from unwanted pressure.",
+  "images": [
+   {
+    "file": "tunesafe-guitar-0.jpg",
+    "page": 130,
+    "size": [
+     1448,
+     1086
+    ]
+   },
+   {
+    "file": "tunesafe-guitar-1.jpg",
+    "page": 131,
+    "size": [
+     1196,
+     681
+    ]
+   },
+   {
+    "file": "tunesafe-guitar-2.jpg",
+    "page": 131,
+    "size": [
+     1196,
+     681
+    ]
+   }
+  ]
+ }
+]

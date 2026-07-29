@@ -10,12 +10,23 @@ export function slugify(s: string): string {
 }
 
 /*
- * `sheet` marks a project imported from a presentation board: alongside the
- * cropped card render in /projects/<img>.jpg there is a full project sheet in
- * /projects/sheets/<img>.jpg carrying the views, drawings and specs. Both go
- * into image_urls so the lightbox gallery can page between them.
+ * Image sources, in order of precedence:
+ *
+ *  `gallery: n`  n images at /projects/portfolio/<img>-0.jpg … -<n-1>.jpg,
+ *                already ordered so -0 is the cover.
+ *  `sheet: true` the cropped card render at /projects/<img>.jpg plus the full
+ *                project sheet at /projects/sheets/<img>.jpg (views, drawings,
+ *                specs), for projects imported from a presentation board.
+ *  default       a single image at /projects/<img>.jpg.
+ *
+ * All of them land in image_urls so the lightbox gallery can page through, and
+ * image_url stays the first entry as the grid cover.
  */
-type Seed = Omit<Project, "slug" | "image_url"> & { img: string; sheet?: boolean };
+type Seed = Omit<Project, "slug" | "image_url"> & {
+  img: string;
+  sheet?: boolean;
+  gallery?: number;
+};
 
 const raw: Seed[] = [
   // ---------- Mechanical & Industrial Engineering ----------
@@ -262,14 +273,128 @@ const raw: Seed[] = [
   { name: "Decorative Swing", category: "printing", img: "swing", sheet: true, sort: 79,
     blurb: "A supplied STL rebuilt as a fully editable parametric CAD model of the swing, ready for further modification, visualisation and manufacturing.",
     tags: ["Reverse Eng.", "Parametric", "Decorative"] },
+
+  // ---------- Client portfolio (imported from Project Portfolio_23.07.2026.pdf) ----------
+  { name: "Aluminum Lure Mold", category: "mechanical", img: "aluminum-mold-lures", gallery: 5, featured: true, sort: 80,
+    blurb: "A four-part casting mould for an elastic \"Hedgehog\" lure. Outer sections were thickened and inner sections narrowed so the complex geometry separates and releases without damaging the casting.",
+    tags: ["Tooling", "Casting", "Aluminium"] },
+  { name: "Protective Shoe Cover", category: "product", img: "sock", gallery: 6, sort: 81,
+    blurb: "A universal indoor overshoe that fits either foot in a single size, with an elastic ankle band for grip and transverse rubber strips underfoot to reduce slipping.",
+    tags: ["Product Design", "Universal Fit", "Elastomer"] },
+  { name: "GroomStick Beard Comb", category: "product", img: "groom-stick", gallery: 6, sort: 82,
+    blurb: "A compact beard comb with an integrated lip balm holder. Tooth arrangement, curved profile and the balm cavity were reworked over several rounds to stay pocketable and print-friendly.",
+    tags: ["Product Design", "3D Print", "Grooming"] },
+  { name: "Golf Divot Repair Tool", category: "product", img: "divot-tool", gallery: 6, featured: true, sort: 83,
+    blurb: "A premium divot tool in minimalist vintage style. Thickness, prong design and the connection areas were revised for structural strength so the prongs resist bending in use.",
+    tags: ["Metal", "Ergonomics", "STEP / STL"] },
+  { name: "Cosplay Wing Arm Support", category: "mechanical", img: "arm-support", gallery: 10, sort: 84,
+    blurb: "A six-piece sheet-metal arm support frame for cosplay wings — sketches converted to CAD, verified as a 3D assembly, then issued as dimensioned DWG drawings for laser cutting.",
+    tags: ["Sheet Metal", "Laser Cutting", "2D DWG"] },
+  { name: "Fishing Hole Cover", category: "product", img: "fishing-hole-cover", gallery: 7, sort: 85,
+    blurb: "Housing and hinged lid assembly with clearances tuned so the cover opens freely while staying attached, plus external openings for LED lighting and a line passage when closed.",
+    tags: ["Assembly", "Mechanism", "Outdoor"] },
+  { name: "Gear Tooth Interference Fix", category: "mechanical", img: "gears-and-teeth", gallery: 6, sort: 86,
+    blurb: "An existing gear train jammed on tooth collisions. We analysed the meshing, then supplied 36- and 37-tooth alternatives with reworked tooth profiles at the original diameter.",
+    tags: ["Gear Design", "Analysis", "Optimisation"] },
+  { name: "Golf Ball Mark Repair Tool", category: "product", img: "ball-mark-tool", gallery: 5, sort: 87,
+    blurb: "Full assembly of a sand/seed dispensing repair tool — housing, spring-loaded rod, refill cap and handle, with clearances set for smooth internal movement.",
+    tags: ["Mechanism", "Assembly", "Prototype"] },
+  { name: "Spin Digger", category: "product", img: "spin-digger", gallery: 11, sort: 88,
+    blurb: "Two concepts for joining a rubber top to a plastic body — a threaded version and a snap-fit click-lock — modelled in full so the customer could evaluate both.",
+    tags: ["Snap-fit", "Concept Study", "Product Design"] },
+  { name: "Cooler Cup & Skate Cup", category: "product", img: "cooler-and-skate-cup", gallery: 8, featured: true, sort: 89,
+    blurb: "Two drinkware models reconstructed entirely from reference photos and target capacities — no drawings or dimensions existed — with branding elements built into the CAD.",
+    tags: ["Concept-to-Part", "Branding", "Consumer"] },
+  { name: "Under-Desk Device Pouch", category: "product", img: "under-desk-storage", gallery: 9, sort: 90,
+    blurb: "An under-desk storage pouch for portable electronics, taken from two competing concepts through repeated iterations on cavity size, finger-access slots and external fillets.",
+    tags: ["Product Design", "Iteration", "Office"] },
+  { name: "Yoga Block", category: "product", img: "yoga-block", gallery: 5, sort: 91,
+    blurb: "Modelled from sketches and reference photos rather than manufacturing documentation, so shape, proportion and cutout geometry were interpreted, then tuned for depth and side notches.",
+    tags: ["Concept-to-Part", "Fitness", "Consumer"] },
+  { name: "Steam & Exhaust Manifold", category: "mechanical", img: "steam-exhaust-manifold", gallery: 7, sort: 92,
+    blurb: "External geometry, internal passages, drilled and threaded features built from supplied drawings, then revised against photos of the manufactured part until CAD and hardware matched.",
+    tags: ["Industrial", "Internal Passages", "Drawings"] },
+  { name: "Intake Valve Cleaner", category: "mechanical", img: "intake-valve-cleaner", gallery: 7, sort: 93,
+    blurb: "A walnut-blasting adapter recreated around the intake port interface, with wall thickness, nozzle position and airflow path optimised for the target engine.",
+    tags: ["Automotive", "Airflow", "Custom Fit"] },
+  { name: "Snap-Fit Tube", category: "mechanical", img: "snap-fit-tube", gallery: 3, sort: 94,
+    blurb: "A pipe modelled to an exact length and wall thickness with an integrated snap-fit at the top, dimensioned so the part seats precisely on its mating component.",
+    tags: ["Snap-fit", "Tolerances", "CAD"] },
+  { name: "Microphone Housing", category: "product", img: "microphone", gallery: 6, sort: 95,
+    blurb: "A housing concept designed around a defined internal component layout — overall body, handle, head connection and internal cavities resolved into an assembly concept.",
+    tags: ["Enclosure", "Product Design", "Audio"] },
+  { name: "Pants Pocket Clip", category: "product", img: "pants-clip", gallery: 6, sort: 96,
+    blurb: "A plastic pocket clip refined over several revisions — clip geometry optimised, magnet pockets added, and the result issued as a prototype-ready model with technical drawings.",
+    tags: ["Injection Molding", "Magnets", "Drawings"] },
+  { name: "Pinewood Derby Ballast Mold", category: "mechanical", img: "mold-pinewood-derby-cars", gallery: 7, sort: 97,
+    blurb: "A multi-cavity gravity casting mould for lead ballast blocks holding 30–31 g per casting — cavities, runner and gate system, pouring inlet, vents, draft and alignment features.",
+    tags: ["Tooling", "Gravity Casting", "Multi-cavity"] },
+  { name: "Rat Tail Bait Mold", category: "mechanical", img: "rat-tail-mold", gallery: 5, sort: 98,
+    blurb: "A six-cavity injection mould for a soft plastic rat tail bait, built around a standard injector with a 16 mm (5/8\") port, with ribs and a rounded tip added to the tail.",
+    tags: ["Tooling", "Soft Plastics", "Multi-cavity"] },
+  { name: "Bottle Closure Assembly", category: "product", img: "bottle-cap", gallery: 14, sort: 99,
+    blurb: "Revisions to an existing closure: the sleeve inner diameter was opened up to fit a mating ceramic component, with several edge-profile variants developed for comparison.",
+    tags: ["Revision", "Tolerances", "Variants"] },
+  { name: "Spring-Loaded Fuel Spout", category: "product", img: "spout-design", gallery: 12, featured: true, sort: 100,
+    blurb: "A spring-loaded fuel spout assembly designed around sealing, smooth component travel and assembly, delivered as a CAD assembly with 2D manufacturing drawings for prototyping.",
+    tags: ["Assembly", "Sealing", "Drawings"] },
+  { name: "Retractable Handle Tablet Case", category: "product", img: "retractable-handle-strap-mechanism", gallery: 3, sort: 101,
+    blurb: "An early-stage concept for a tablet case with an integrated retractable handle, exploring external form and several layouts for the main components.",
+    tags: ["Concept", "Mechanism", "Consumer"] },
+  { name: "XRF Scanner Stand", category: "printing", img: "xrf-scanner-stand", gallery: 9, sort: 102,
+    blurb: "A stand and protective cover shaped around the scanner's irregular geometry, refined across iterations against 3D-printed test results until the fit was stable and secure.",
+    tags: ["3D Print", "Custom Fit", "Instrumentation"] },
+  { name: "Speaker Mounting Bracket", category: "printing", img: "speaker-holder", gallery: 5, sort: 103,
+    blurb: "An existing bracket recreated from reference photos and measurements, then adapted for 3D printing so it drops in as a replacement for the damaged original.",
+    tags: ["Reverse Eng.", "3D Print", "Spare Part"] },
+  { name: "Tuff-Stix XS Extrusion", category: "mechanical", img: "tuff-stix-xs", gallery: 4, sort: 104,
+    blurb: "An aluminium extrusion profile built to supplied specifications — wall thicknesses, exterior and interior support ribs and radius detail — and optimised for tooling preparation.",
+    tags: ["Extrusion", "Aluminium", "Profile"] },
+  { name: "Sun & Rays Door Number", category: "product", img: "door-number-333", gallery: 5, sort: 105,
+    blurb: "A 2D visual concept converted into a decorative door number in 3D, with ray count, shape, thickness, slope and text dimensions tuned over several rounds.",
+    tags: ["Decorative", "Concept-to-Part", "Signage"] },
+  { name: "Tornado Trellis", category: "product", img: "tornado-trellis", gallery: 6, sort: 106,
+    blurb: "A modular spiral trellis system — pedestal structure, internal support and spiral rail geometry — developed within tight spatial limits and smooth transitions.",
+    tags: ["Modular", "Garden", "Complex Geometry"] },
+  { name: "Tray & Test Mold", category: "mechanical", img: "tray-mold", gallery: 7, sort: 107,
+    blurb: "Cavity geometry, lid fit, mould layout and an embossed logo, adjusted across iterations for cavity dimensions, logo size, line thickness and emboss depth.",
+    tags: ["Tooling", "Embossing", "Prototype"] },
+  { name: "Truck Air Intake Box", category: "mechanical", img: "air-intake-box-for-a-truck", gallery: 5, sort: 108,
+    blurb: "Sketches and reference models converted into precise CAD geometry, with unclear design details resolved directly with the customer over successive adjustments.",
+    tags: ["Automotive", "Concept-to-Part", "Enclosure"] },
+  { name: "Vibra Screw Plant Models", category: "printing", img: "vibra-screw", gallery: 11, featured: true, sort: 109,
+    blurb: "Existing DWG drawings interpreted into simplified 3D models for plant layout visualisation — accurate external shape, footprint and interfaces rather than fabrication detail.",
+    tags: ["Reverse Eng.", "Plant Layout", "DWG to 3D"] },
+  { name: "Worm Lure Mold", category: "mechanical", img: "worm-lure-mold", gallery: 5, sort: 110,
+    blurb: "A casting mould built around an approved worm model with a smooth section, ribbed body and tail. A core rod lets the lure mould hollow so a second colour can be injected.",
+    tags: ["Tooling", "Two-Shot", "Fishing"] },
+  { name: "Hyperbolic Paraboloid Structures", category: "printing", img: "hyperbolic-paraboloid-designs", gallery: 4, sort: 111,
+    blurb: "Complex hyperbolic paraboloid structures reconstructed from reference drawings and architectural examples, holding geometry, proportion and wall thickness from limited information.",
+    tags: ["Architecture", "Complex Geometry", "Visualisation"] },
+  { name: "TuneSafe Headstock Cover", category: "product", img: "tunesafe-guitar", gallery: 3, featured: true, sort: 112,
+    blurb: "A protective guitar headstock cover that stops tuning pegs being knocked. An internal support system stabilises the headstock on soft contact points without pressing the machines.",
+    tags: ["Product Design", "Universal Fit", "Music"] },
 ];
 
 export const SEED_PROJECTS: Project[] = raw.map((p) => {
-  const { img, sheet, ...rest } = p;
-  const image_url = `/projects/${img}.jpg`;
-  const image_urls = sheet ? [image_url, `/projects/sheets/${img}.jpg`] : [image_url];
-  return { ...rest, slug: slugify(p.name), image_url, image_urls };
+  const { img, sheet, gallery, ...rest } = p;
+  const image_urls = seedImages({ img, sheet, gallery });
+  return { ...rest, slug: slugify(p.name), image_url: image_urls[0], image_urls };
 });
+
+/*
+ * Kept below SEED_PROJECTS (hoisted, so the map above still sees it) because
+ * scripts/generate-seed-migration.mjs parses the raw array by slicing data.ts
+ * between `const raw` and `export const SEED_PROJECTS` — anything declared in
+ * between ends up inside that slice and breaks the parse.
+ */
+export function seedImages(p: Pick<Seed, "img" | "sheet" | "gallery">): string[] {
+  if (p.gallery) {
+    return Array.from({ length: p.gallery }, (_, i) => `/projects/portfolio/${p.img}-${i}.jpg`);
+  }
+  const base = `/projects/${p.img}.jpg`;
+  return p.sheet ? [base, `/projects/sheets/${p.img}.jpg`] : [base];
+}
 
 export const SEED_POSTS: Post[] = [
   {
