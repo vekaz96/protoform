@@ -9,16 +9,18 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
    workflow visual panel. Re-runs on every route change and only kills the
    triggers it created (the drone hero manages its own). */
 
+/* The corner tag names the deliverable, not a past project — the panel is about
+   what you receive at each phase, and the work itself lives on /projects. */
 const WF_PHASES = [
-  { ex: "Centrifugal Pump", label: "Detailed 3D design + engineering",
+  { ex: "STEP · IGES · native CAD", label: "Detailed 3D design + engineering",
     desc: "Sketches, scans or old 2D drawings become precise, fully editable CAD geometry." },
-  { ex: "Cooling Station", label: "Major DFM implemented",
-    desc: "Split into two printable pieces to cut cost and remove support — manufacturing drives the shape." },
-  { ex: "The Back Dragon", label: "Complete BOM specified",
-    desc: "Every part, fastener, material and weight listed against an exploded view." },
-  { ex: "Foam Dispenser", label: "Calculations & simulations",
-    desc: "Fit studies and cross-sections prove the assembly before anything is made." },
-  { ex: "Impeller — 5 walls, 100% infill", label: "Ready for physical prototyping",
+  { ex: "Draft · ribs · wall thickness", label: "Major DFM implemented",
+    desc: "Draft angles, ribs and wall thickness are set so the part can actually be made — and made affordably." },
+  { ex: "Parts · materials · weights", label: "Complete BOM specified",
+    desc: "Every part, fastener, material and weight listed and costed against the assembly." },
+  { ex: "FEA · fit studies", label: "Calculations & simulations",
+    desc: "Loads, stresses and clearances are proven in software before anything is cut or printed." },
+  { ex: "STL · dimensioned DWG", label: "Ready for physical prototyping",
     desc: "Print-ready models with dimensioned drawings — then the real part in your hand." },
 ];
 
@@ -28,6 +30,7 @@ export default function SiteEffects() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const created: ScrollTrigger[] = [];
+    let wfTimer = 0;
     const track = (t: ScrollTrigger | undefined) => {
       if (t) created.push(t);
     };
@@ -121,7 +124,7 @@ export default function SiteEffects() {
       // sticky workflow visual panel
       const wfMedia = document.getElementById("wfMedia");
       if (wfMedia) {
-        const imgs = Array.from(wfMedia.querySelectorAll("img"));
+        const imgs = Array.from(wfMedia.querySelectorAll<HTMLElement>("[data-phase]"));
         const steps = gsap.utils.toArray<HTMLElement>(".wstep");
         const num = document.getElementById("wfNum");
         const lab = document.getElementById("wfLabel");
@@ -129,8 +132,7 @@ export default function SiteEffects() {
         const ex = document.getElementById("wfEx");
         const bar = document.getElementById("wfBar");
         let activeI = -1;
-        const setPhase = (i: number) => {
-          if (i === activeI || i < 0 || i >= WF_PHASES.length) return;
+        const applyPhase = (i: number) => {
           activeI = i;
           imgs.forEach((im, k) => im.classList.toggle("active", k === i));
           steps.forEach((s, k) => {
@@ -146,6 +148,41 @@ export default function SiteEffects() {
           if (lab && des)
             gsap.fromTo([lab, des], { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out", stagger: 0.05 });
         };
+
+        /*
+         * The phases are driven by scroll position, so a single flick used to
+         * fire several of them in a few hundred milliseconds and the crossfade
+         * never finished — it read as a strobe. Hold each phase for MIN_DWELL
+         * and coalesce anything that arrives inside that window, so a fast
+         * scroll lands on the phase you stopped at instead of flashing through
+         * every one on the way.
+         */
+        const MIN_DWELL = 420;
+        let shownAt = 0;
+        let queued: number | null = null;
+        /*
+         * Nothing runs until the whole visual panel is on screen. Entering the
+         * section from the top used to start — and often finish — phase 01's
+         * draw-in while the panel was still half below the fold, so the first
+         * thing you actually saw was already over.
+         */
+        let armed = false;
+        let lastRequested = 0;
+        const setPhase = (i: number) => {
+          if (i < 0 || i >= WF_PHASES.length) return;
+          lastRequested = i;
+          if (!armed || i === activeI) return;
+          queued = i;
+          window.clearTimeout(wfTimer);
+          const wait = Math.max(0, MIN_DWELL - (performance.now() - shownAt));
+          wfTimer = window.setTimeout(() => {
+            if (queued === null || queued === activeI) return;
+            shownAt = performance.now();
+            applyPhase(queued);
+            queued = null;
+          }, wait);
+        };
+
         steps.forEach((s, i) => {
           track(
             ScrollTrigger.create({
@@ -156,8 +193,38 @@ export default function SiteEffects() {
               onEnterBack: () => setPhase(i),
             })
           );
+          // clicking a step scrolls it into its own active band, which sets the
+          // phase through the same trigger — no second source of truth.
+          s.addEventListener("click", () => s.scrollIntoView({ behavior: "smooth", block: "center" }));
         });
-        setPhase(0);
+
+        const card = document.querySelector<HTMLElement>(".wf-visual__card");
+        const arm = () => {
+          if (armed) return;
+          armed = true;
+          wfMedia.classList.add("is-armed");
+          applyPhase(lastRequested);
+        };
+        if (card) {
+          // A panel taller than the viewport can never be "fully visible", so
+          // fall back to arming as its top reaches the top of the screen.
+          const tooTall = card.offsetHeight > window.innerHeight - 120;
+          const box = card.getBoundingClientRect();
+          if (tooTall ? box.top <= 100 : box.bottom <= window.innerHeight - 16) {
+            arm();
+          } else {
+            track(
+              ScrollTrigger.create({
+                trigger: card,
+                start: tooTall ? "top top+=100" : "bottom bottom-=16",
+                once: true,
+                onEnter: arm,
+              })
+            );
+          }
+        } else {
+          arm();
+        }
       }
 
       ScrollTrigger.refresh();
@@ -165,6 +232,7 @@ export default function SiteEffects() {
 
     return () => {
       window.clearTimeout(id);
+      window.clearTimeout(wfTimer);
       created.forEach((t) => t.kill());
     };
   }, [pathname]);

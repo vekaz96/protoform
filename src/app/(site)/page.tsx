@@ -1,5 +1,6 @@
 import Link from "next/link";
 import DroneHero from "@/components/DroneHero";
+import WorkflowVisual from "@/components/WorkflowVisual";
 
 export default function Home() {
   return (
@@ -78,18 +79,12 @@ export default function Home() {
           <aside className="wf-visual" id="wfVisual">
             <div className="wf-visual__card">
               <div className="wf-visual__media" id="wfMedia">
-                {/* eslint-disable @next/next/no-img-element */}
-                <img src="/projects/portfolio/pump-0.jpg" alt="CAD geometry" className="active" />
-                <img src="/projects/coolingstation.jpg" alt="Design optimized for manufacturing" />
-                <img src="/projects/bom.jpg" alt="Exploded view with bill of materials" />
-                <img src="/projects/foam.jpg" alt="Cross-section fit study" />
-                <img src="/projects/impeller.jpg" alt="Printed prototype part" />
-                {/* eslint-enable @next/next/no-img-element */}
+                <WorkflowVisual />
               </div>
               <div className="wf-visual__body">
                 <div className="wf-visual__top">
                   <span className="wf-visual__num"><b id="wfNum">01</b> / 05</span>
-                  <span className="wf-visual__ex" id="wfEx">Centrifugal Pump</span>
+                  <span className="wf-visual__ex" id="wfEx">STEP · IGES · native CAD</span>
                 </div>
                 <span className="wf-visual__label" id="wfLabel">Detailed 3D design + engineering</span>
                 <p className="wf-visual__desc" id="wfDesc">Sketches, scans or old 2D drawings become precise, fully editable CAD geometry.</p>
