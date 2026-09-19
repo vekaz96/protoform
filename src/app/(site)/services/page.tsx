@@ -34,7 +34,7 @@ export default function ServicesPage() {
 
         <div className="split reveal">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <div className="split__media"><img src="/projects/valve.jpg" alt="Butterfly valve" /></div>
+          <div className="split__media"><img src="/projects/portfolio/valve-0.jpg" alt="Butterfly valve rebuilt as a parametric 3D model" /></div>
           <div className="split__body">
             <h3>CAD engineering at scale</h3>
             <p>For the Dutch company PELICAN WORLDWIDE we rebuilt over 150 DWG drawings into fully parametric 3D models in Autodesk Inventor — every tolerance carried across. The same discipline drove our centrifugal pumps, now in production in the Middle East.</p>
@@ -44,7 +44,7 @@ export default function ServicesPage() {
 
         <div className="split reveal">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <div className="split__media"><img src="/projects/foam.jpg" alt="Foam dispenser assembly" /></div>
+          <div className="split__media"><img src="/projects/services/foam-xsection.jpg" alt="Cross-section of the foam dispenser assembly" /></div>
           <div className="split__body">
             <h3>Simulation &amp; assemblies that fit</h3>
             <p>The Foam Dispenser needed a full adapter–seal–housing–washer–nut stack around a bent internal air-hose. We widened the tube, ran the fit and made sure every component sat exactly where it should before a single part was printed.</p>
@@ -54,7 +54,7 @@ export default function ServicesPage() {
 
         <div className="split reveal">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <div className="split__media"><img src="/projects/portfolio/petg-0.jpg" alt="PET-G replacement parts" /></div>
+          <div className="split__media"><img src="/projects/portfolio/petggear-0.jpg" alt="3D-printed replacement sprocket beside the original factory part" /></div>
           <div className="split__body">
             <h3>Prototypes &amp; parts you can hold</h3>
             <p>When a part can&apos;t be bought anymore, we reverse-engineer it and print it — from PET-G replacement parts and factory sprockets to a reverse-engineered impeller printed with five walls at 100% infill.</p>
