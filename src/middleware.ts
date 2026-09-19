@@ -6,5 +6,7 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  // /api/ai checks the signed-in user itself; refreshing the session here keeps
+  // an admin whose access token expired mid-edit from getting a spurious 401.
+  matcher: ["/admin/:path*", "/api/ai/:path*"],
 };

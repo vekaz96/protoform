@@ -1,4 +1,8 @@
 import { NextResponse } from "next/server";
+import { createClient, hasSupabase } from "@/lib/supabase/server";
+
+/* Bounds the per-call spend even for a signed-in admin. */
+const MAX_INPUT_CHARS = 4000;
 
 type ImprovePayload =
   | {
@@ -67,6 +71,23 @@ function getTextFromResponse(json: unknown): string {
 }
 
 export async function POST(req: Request) {
+  /*
+   * This spends the server's OpenAI key, so only a signed-in admin may call it.
+   * The /admin pages are guarded by requireAdmin(), but API routes are not —
+   * without this check the endpoint was a public, free-text LLM proxy billed
+   * to the project. requireAdmin() redirects, which is wrong for an API, so
+   * answer 401 instead.
+   */
+  if (!hasSupabase()) {
+    return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
+  }
+  const {
+    data: { user },
+  } = await createClient().auth.getUser();
+  if (!user) {
+    return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
+  }
+
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
     return NextResponse.json(
@@ -87,6 +108,9 @@ export async function POST(req: Request) {
   }
 
   const input = buildPrompt(payload);
+  if (input.length > MAX_INPUT_CHARS) {
+    return NextResponse.json({ error: "Description is too long to improve." }, { status: 413 });
+  }
 
   const resp = await fetch("https://api.openai.com/v1/responses", {
     method: "POST",
@@ -102,9 +126,11 @@ export async function POST(req: Request) {
   });
 
   if (!resp.ok) {
-    const text = await resp.text();
+    // Keep OpenAI's raw error (account/org/quota detail) in the server log,
+    // not in the response body.
+    console.error("OpenAI request failed", resp.status, await resp.text());
     return NextResponse.json(
-      { error: `OpenAI request failed (${resp.status}): ${text}` },
+      { error: `OpenAI request failed (${resp.status}).` },
       { status: 502 }
     );
   }
